@@ -165,6 +165,6 @@ class Sales extends Model
      */
     public function getAdminPowerAttribute()
     {
-        return url('edit_pages');
+        return 'edit_pages';
     }
 }
