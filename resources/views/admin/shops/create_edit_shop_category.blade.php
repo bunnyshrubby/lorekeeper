@@ -50,7 +50,7 @@
     <div class="card mb-2 text-center">
         <div class="card-header d-flex flex-wrap no-gutters">
             <h1 class="col-12">
-                <img src="{{ $category->categoryImageUrl }}" style="margin-right: 10px">{!! $category->name !!} <img src="{{ $category->categoryImageUrl }}" style="margin-right: 10px">
+                <img src="{{ $category->categoryImageUrl }}" style="margin-right: 10px">{!! $category->name !!} <img src="{{ $category->categoryImageUrl }}" style="margin-left: 10px; ">
             </h1>
             <div class="col-12 text-center">
             @if($category->description) {!! $category->description !!}@endif

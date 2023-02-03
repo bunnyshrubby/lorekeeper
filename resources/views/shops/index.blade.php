@@ -9,14 +9,14 @@
     Shops
 </h1>
 
-
+<div class="row shops-row">
 @if($shops->count())
 @foreach($shops as $categoryId=>$categoryshops)
 <div class="col-md-12">
     <div class="card mb-2 text-center">
         <div class="card-header d-flex flex-wrap no-gutters">
             <h1 class="col-12">
-                {!! isset($shopcategories[$categoryId]) ? ''.'<img src="'.$shopcategories[$categoryId]->categoryImageUrl.'" style="margin-right: 10px">'.'' : ' ' !!} {!! isset($shopcategories[$categoryId]) ? ''.$shopcategories[$categoryId]->name.'' : 'Miscellaneous' !!} {!! isset($shopcategories[$categoryId]) ? ''.'<img src="'.$shopcategories[$categoryId]->categoryImageUrl.'" style="margin-right: 10px">'.'' : ' ' !!}
+                {!! isset($shopcategories[$categoryId]) ? ''.'<img src="'.$shopcategories[$categoryId]->categoryImageUrl.'" style="margin-right: 10px">'.'' : ' ' !!} {!! isset($shopcategories[$categoryId]) ? ''.$shopcategories[$categoryId]->name.'' : 'Miscellaneous' !!} {!! isset($shopcategories[$categoryId]) ? ''.'<img src="'.$shopcategories[$categoryId]->categoryImageUrl.'" style="margin-left: 10px">'.'' : ' ' !!}
             </h1>
             <div class="col-12 text-center">
                 {!! isset($shopcategories[$categoryId]) ? ''.$shopcategories[$categoryId]->description.'' : ' ' !!}
@@ -44,6 +44,7 @@
         </div>
 @endforeach
 @endif
+</div>
 
 @endsection
 
