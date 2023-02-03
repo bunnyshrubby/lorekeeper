@@ -39,6 +39,11 @@
 </div>
 
 <div class="form-group">
+            {!! Form::label('Shop Category (Optional)') !!}
+            {!! Form::select('shop_category_id', $shop_categories, $shop->shop_category_id, ['class' => 'form-control selectize']) !!}
+</div>
+
+<div class="form-group">
     {!! Form::checkbox('is_active', 1, $shop->id ? $shop->is_active : 1, ['class' => 'form-check-input', 'data-toggle' => 'toggle']) !!}
     {!! Form::label('is_active', 'Set Active', ['class' => 'form-check-label ml-3']) !!} {!! add_help('If turned off, the shop will not be visible to regular users.') !!}
 </div>
