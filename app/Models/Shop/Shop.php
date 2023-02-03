@@ -143,16 +143,4 @@ class Shop extends Model
     {
         return url('shops/'.$this->id);
     }
-
-            /**
-     * Scope a query to sort gears in category order.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeSortCategory($query)
-    {
-        $ids = ShopCategory::orderBy('sort', 'DESC')->pluck('id')->toArray();
-        return count($ids) ? $query->orderByRaw(DB::raw('FIELD(shop_category_id, '.implode(',', $ids).')')) : $query;
-    }
 }
