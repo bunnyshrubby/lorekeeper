@@ -19,7 +19,7 @@ class CharacterImage extends Model
      * @var array
      */
     protected $fillable = [
-        'character_id', 'user_id', 'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'url',
+        'character_id', 'user_id', 'species_id', 'subtype_id', 'rarity_id', 'url',
         'extension', 'use_cropper', 'hash', 'fullsize_hash', 'sort',
         'x0', 'x1', 'y0', 'y1',
         'description', 'parsed_description',
@@ -48,8 +48,8 @@ class CharacterImage extends Model
     public static $createRules = [
         'species_id' => 'required',
         'rarity_id' => 'required',
-        'image' => 'required|mimes:jpeg,gif,png|max:20000',
-        'thumbnail' => 'nullable|mimes:jpeg,gif,png|max:20000',
+        'image' => 'required|mimes:jpeg,jpg,gif,png|max:20000',
+        'thumbnail' => 'nullable|mimes:jpeg,jpg,gif,png|max:20000',
     ];
 
     /**
@@ -101,14 +101,6 @@ class CharacterImage extends Model
     public function subtype()
     {
         return $this->belongsTo('App\Models\Species\Subtype', 'subtype_id');
-    }
-
-    /**
-     * Get the subtype of the character image.
-     */
-    public function subtypeTwo()
-    {
-        return $this->belongsTo('App\Models\Species\Subtype', 'subtype_id_2');
     }
 
     /**
