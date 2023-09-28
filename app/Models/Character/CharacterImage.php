@@ -19,11 +19,7 @@ class CharacterImage extends Model
      * @var array
      */
     protected $fillable = [
-<<<<<<< HEAD
-        'character_id', 'user_id', 'species_id', 'subtype_id', 'rarity_id', 'url',
-=======
         'character_id', 'user_id', 'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'url',
->>>>>>> cebf04b8e147a1a20cbc00e143b190cfd27536ce
         'extension', 'use_cropper', 'hash', 'fullsize_hash', 'sort',
         'x0', 'x1', 'y0', 'y1',
         'description', 'parsed_description',
@@ -107,8 +103,6 @@ class CharacterImage extends Model
         return $this->belongsTo('App\Models\Species\Subtype', 'subtype_id');
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Get the subtype of the character image.
      */
@@ -117,7 +111,6 @@ class CharacterImage extends Model
         return $this->belongsTo('App\Models\Species\Subtype', 'subtype_id_2');
     }
 
->>>>>>> cebf04b8e147a1a20cbc00e143b190cfd27536ce
     /**
      * Get the rarity of the character image.
      */
