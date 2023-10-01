@@ -12,7 +12,6 @@ return [
     //     'version' => '1.0.0',
     // ],
 
-<<<<<<< HEAD
     'second_subtype' => [
         'key' => 'second_subtype',
         'wiki_key' => 'Second_Subtype',
@@ -22,7 +21,6 @@ return [
         'version' => '1.0.1',
     ],
 
-=======
     'world_expansion' => [
         'key' => 'world_expansion',
         'wiki_key' => 'World_Expansion',
@@ -34,5 +32,4 @@ return [
     ],
 
 
->>>>>>> 5504580db566fa9f96fa494fcc76949984329ef1
 ];

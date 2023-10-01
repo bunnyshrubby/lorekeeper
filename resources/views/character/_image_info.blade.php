@@ -41,12 +41,10 @@
                         <div class="col-lg-8 col-md-6 col-8">{!! $image->subtype_id ? $image->subtype->displayName : 'None' !!}</div>
                     </div>
                 @endif
-<<<<<<< HEAD
                 @if($image->subtype_id_2)
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-4"><h5>Subtype</h5></div>
                         <div class="col-lg-8 col-md-6 col-8">{!! $image->subtype_id_2 ? $image->subtypeTwo->displayName : 'None' !!}</div>
-=======
                 @if($image->character->homeSetting)
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-4"><h5>Home</h5></div>
@@ -57,7 +55,6 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-4"><h5>Faction</h5></div>
                         <div class="col-lg-8 col-md-6 col-8">{!! $image->character->faction ? $image->character->currentFaction : 'None' !!}{!! $character->factionRank ? ' ('.$character->factionRank->name.')' : null !!}</div>
->>>>>>> 5504580db566fa9f96fa494fcc76949984329ef1
                     </div>
                 @endif
                 <div class="row">
