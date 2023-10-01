@@ -46,15 +46,25 @@ return [
     ],
 
     // Group Traits By Category - Uri
+<<<<<<< HEAD
     'traits_by_category' => 1,
 
     // Scroll To Top - Uri
     'scroll_to_top' => 0, // 1 - On, 0 - off
+=======
+    'traits_by_category'            => 0,
+>>>>>>> 09874e096bd63a032e5fc81b133cef38fd704c9e
 
     // Character Reward Expansion - Uri
-    'character_reward_expansion' => [
-        'expanded' => 1,
-        'default_recipient' => 0, // 0 to default to the character's owner (if a user), 1 to default to the submission user.
+    'character_reward_expansion'    => [
+        'expanded'                  => 1,
+        'default_recipient'         => 0, // 0 to default to the character's owner (if a user), 1 to default to the submission user.
+    ],
+
+    // Awards - Uri
+    'awards' => [
+        'user_featured'             => 1,   // Number of awards displayed prominently on the user profile
+        'character_featured'        => 1,   // Number of awards displayed prominently on the character page
     ],
 
 ];

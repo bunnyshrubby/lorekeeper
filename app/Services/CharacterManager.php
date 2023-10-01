@@ -2070,7 +2070,7 @@ is_object($sender) ? $sender->id : null,
         DB::beginTransaction();
 
         try {
-            if(!($request->character->is_myo_slot && $request->character->image->species_id) && !isset($data['species_id'])) throw new \Exception("Please select a species.");
+            if(!($request->character->is_myo_slot && $request->character->image->species_id) && !isset($data['species_id'])) throw new \Exception("Please select a ".__('lorekeeper.species').".");
             if(!($request->character->is_myo_slot && $request->character->image->rarity_id) && !isset($data['rarity_id'])) throw new \Exception("Please select a rarity.");
 
             $rarity = ($request->character->is_myo_slot && $request->character->image->rarity_id) ? $request->character->image->rarity : Rarity::find($data['rarity_id']);
@@ -2082,9 +2082,14 @@ is_object($sender) ? $sender->id : null,
                 $subtypeTwo = ($request->character->is_myo_slot && $request->character->image->subtype_id_2) ? $request->character->image->subtypeTwo : Subtype::find($data['subtype_id_2']);
             else $subtypeTwo = null;
             if(!$rarity) throw new \Exception("Invalid rarity selected.");
+<<<<<<< HEAD
             if(!$species) throw new \Exception("Invalid species selected.");
             if($subtype && $subtype->species_id != $species->id) throw new \Exception("Subtype does not match the species.");
             if($subtypeTwo && $subtypeTwo->species_id != $species->id) throw new \Exception("Secondary subtype does not match the species.");
+=======
+            if(!$species) throw new \Exception("Invalid ".__('lorekeeper.species')." selected.");
+            if($subtype && $subtype->species_id != $species->id) throw new \Exception(ucfirst(__('lorekeeper.subtype'))." does not match the ".__('lorekeeper.species').".");
+>>>>>>> 09874e096bd63a032e5fc81b133cef38fd704c9e
 
             // Clear old features
             $request->features()->delete();
