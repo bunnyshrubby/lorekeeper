@@ -12,7 +12,6 @@ return [
     //     'version' => '1.0.0',
     // ],
 
-<<<<<<< HEAD
     'second_subtype' => [
         'key' => 'second_subtype',
         'wiki_key' => 'Second_Subtype',
@@ -30,7 +29,8 @@ return [
             'Mercury' => 'https://github.com/itinerare/',
         ]),
         'version' => '1.3.1',
-=======
+    ],
+    
     'shop_features' => [
         'key' => 'shop_features',
         'wiki_key' => 'Shop_Features',
@@ -38,7 +38,6 @@ return [
             'Newt' => 'https://github.com/ne-wt/',
         ]),
         'version' => '1.0.4',
->>>>>>> 2602f4d8df88f1769abc86eb0801a45cd1166bdd
     ],
 
 
