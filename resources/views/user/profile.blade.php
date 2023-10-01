@@ -21,13 +21,9 @@
         <span class="badge badge-success float-right" data-toggle="tooltip" title="This user has not owned any characters from this world before.">FTO</span>
     @endif
 </h1>
-<<<<<<< HEAD
-<div class="mb-1">
-=======
 
 
 <div class="mb-4">
->>>>>>> 09874e096bd63a032e5fc81b133cef38fd704c9e
     <div class="row">
         <div class="row col-md-6">
             <div class="col-md-4 col-4"><h5>Alias</h5></div>

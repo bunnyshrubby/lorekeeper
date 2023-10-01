@@ -12,7 +12,6 @@ return [
     //     'version' => '1.0.0',
     // ],
 
-<<<<<<< HEAD
     'second_subtype' => [
         'key' => 'second_subtype',
         'wiki_key' => 'Second_Subtype',
@@ -42,7 +41,6 @@ return [
     ],
 
 
-=======
     'awards' => [
         'key' => 'awards',
         'wiki_key' => 'Awards',
@@ -54,5 +52,4 @@ return [
         'version' => '2.0.0',
     ],
 
->>>>>>> 09874e096bd63a032e5fc81b133cef38fd704c9e
 ];
