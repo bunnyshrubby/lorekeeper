@@ -12,6 +12,16 @@
 @if($user->is_banned)
     <div class="alert alert-danger">This user has been banned.</div>
 @endif
+
+@if($user->is_deactivated)
+    <div class="alert alert-info text-center">
+        <h1>{!! $user->displayName !!}</h1>
+            <p>This account is currently deactivated, be it by staff or the user's own action. All information herein is hidden until the account is reactivated.</p>
+        @if(Auth::check() && Auth::user()->isStaff)
+            <p class="mb-0">As you are staff, you can see the profile contents below and the sidebar contents.</p>
+            @if(!$user->is_deactivated || Auth::check() && Auth::user()->isStaff)
+    @include('user._profile_content', ['user' => $user, 'deactivated' => $user->is_deactivated])
+@endif
 <h1>
     <img src="/images/avatars/{{ $user->avatar }}" style="width:125px; height:125px; float:left; border-radius:50%; margin-right:25px;" alt="{{ $user->name }}" >
     {!! $user->displayName !!}
@@ -56,15 +66,8 @@
                 <div class="col-md-8 col-8">{!! $user->faction ? $user->faction->fullDisplayName : '-Deleted Faction-' !!}{!! $user->factionRank ? ' ('.$user->factionRank->name.')' : null !!}</div>
             </div>
         @endif
-        @if($user->is_deactivated)
-            <div class="alert alert-info text-center">
-                 <h1>{!! $user->displayName !!}</h1>
-                <p>This account is currently deactivated, be it by staff or the user's own action. All information herein is hidden until the account is reactivated.</p>
-                @if(Auth::check() && Auth::user()->isStaff)
-            <p class="mb-0">As you are staff, you can see the profile contents below and the sidebar contents.</p>
-            </div>
-        @endif
-
+    </div>
+@endif
 
 
 <div class="card-deck mb-4 profile-assets" style="clear:both;">
@@ -126,8 +129,5 @@
             <div class="text-right"><a href="{{ $user->url.'/'.__('awards.awardcase') }}">View all...</a></div>
         </div>
     </div>
-@if(!$user->is_deactivated || Auth::check() && Auth::user()->isStaff)
-    @include('user._profile_content', ['user' => $user, 'deactivated' => $user->is_deactivated])
-@endif
 
 @endsection
