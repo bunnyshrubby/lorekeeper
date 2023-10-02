@@ -10,11 +10,8 @@ use App\Http\Controllers\Controller;
 use App\Services\ShopManager;
 
 use App\Models\Shop\Shop;
-<<<<<<< HEAD
 use App\Models\Shop\ShopLimit;
-=======
 use App\Models\Shop\ShopCategory;
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
 use App\Models\Shop\ShopStock;
 use App\Models\Shop\ShopLog;
 use App\Models\Item\Item;
@@ -44,14 +41,10 @@ class ShopController extends Controller
             $shops = count($shopcategories) ? Shop::where('is_active', 1)->orderByRaw('FIELD(shop_category_id,'.implode(',', $shopcategories->pluck('id')->toArray()).')')->orderBy('name')->get()->groupBy('shop_category_id') : Shop::where('is_active', 1)->orderBy('name')->get()->groupBy('shop_category_id');
         
         return view('shops.index', [
-<<<<<<< HEAD
-            'shops' => Shop::where('is_active', 1)->orderBy('sort', 'DESC')->get()
-        ]);
-=======
+            'shops' => Shop::where('is_active', 1)->orderBy('sort', 'DESC')->get(),
             'shopcategories' => $shopcategories->keyBy('id'),
             'shops' => $shops,
-            ]);
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
+        ]);
     }
 
     /**
@@ -62,12 +55,9 @@ class ShopController extends Controller
      */
     public function getShop($id)
     {
-<<<<<<< HEAD
-=======
         $categories = ItemCategory::orderBy('sort', 'DESC')->get();
         $shopcategories = ShopCategory::orderBy('sort', 'DESC')->get();
         $shops = count($shopcategories) ? Shop::where('is_active', 1)->orderByRaw('FIELD(shop_category_id,'.implode(',', $shopcategories->pluck('id')->toArray()).')')->orderBy('name')->get()->groupBy('shop_category_id') : Shop::where('is_active', 1)->orderBy('name')->get()->groupBy('shop_category_id');
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
         $shop = Shop::where('id', $id)->where('is_active', 1)->first();
 
         if(!$shop) abort(404);
@@ -135,15 +125,12 @@ class ShopController extends Controller
 
         return view('shops.shop', [
             'shop' => $shop,
-<<<<<<< HEAD
             'stocks' => $stocks,
             'shops' => Shop::where('is_active', 1)->orderBy('sort', 'DESC')->get(),
-=======
             'categories' => $categories->keyBy('id'),
             'items' => $items,
             'shopcategories' => $shopcategories->keyBy('id'),
             'shops' => $shops,
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
             'currencies' => Currency::whereIn('id', ShopStock::where('shop_id', $shop->id)->pluck('currency_id')->toArray())->get()->keyBy('id')
         ]);
     }

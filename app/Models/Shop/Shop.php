@@ -13,11 +13,7 @@ class Shop extends Model
      * @var array
      */
     protected $fillable = [
-<<<<<<< HEAD
-        'name', 'sort', 'has_image', 'description', 'parsed_description', 'is_active', 'is_staff', 'use_coupons', 'is_restricted', 'is_fto', 'allowed_coupons', 'is_timed_shop', 'start_at', 'end_at'
-=======
-        'name', 'sort', 'has_image', 'description', 'parsed_description', 'is_active', 'shop_category_id'
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
+        'name', 'sort', 'has_image', 'description', 'parsed_description', 'is_active', 'shop_category_id', 'is_staff', 'use_coupons', 'is_restricted', 'is_fto', 'allowed_coupons', 'is_timed_shop', 'start_at', 'end_at'
     ];
 
     /**

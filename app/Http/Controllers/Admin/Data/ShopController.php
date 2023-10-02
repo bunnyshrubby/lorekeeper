@@ -51,12 +51,9 @@ class ShopController extends Controller
         })->orderBy('name')->pluck('name', 'id');
         return view('admin.shops.create_edit_shop', [
             'shop' => new Shop,
-<<<<<<< HEAD
             'items' => Item::orderBy('name')->pluck('name', 'id'),
             'coupons' => $coupons,
-=======
             'shop_categories' => ['none' => 'No category'] + ShopCategory::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
         ]);
     }
 
@@ -80,11 +77,8 @@ class ShopController extends Controller
             'shop' => $shop,
             'items' => Item::orderBy('name')->pluck('name', 'id'),
             'currencies' => Currency::orderBy('name')->pluck('name', 'id'),
-<<<<<<< HEAD
             'coupons' => $coupons,
-=======
             'shop_categories' => ['none' => 'No category'] + ShopCategory::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
         ]);
     }
 
@@ -100,11 +94,7 @@ class ShopController extends Controller
     {
         $id ? $request->validate(Shop::$updateRules) : $request->validate(Shop::$createRules);
         $data = $request->only([
-<<<<<<< HEAD
-            'name', 'description', 'image', 'remove_image', 'is_active', 'is_staff', 'use_coupons', 'is_fto', 'allowed_coupons', 'is_timed_shop', 'start_at', 'end_at'
-=======
-            'name', 'description', 'image', 'remove_image', 'is_active', 'shop_category_id'
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
+            'name', 'description', 'image', 'remove_image', 'is_active', 'shop_category_id', 'is_staff', 'use_coupons', 'is_fto', 'allowed_coupons', 'is_timed_shop', 'start_at', 'end_at'
         ]);
         if($id && $service->updateShop(Shop::find($id), $data, Auth::user())) {
             flash('Shop updated successfully.')->success();
@@ -299,7 +289,6 @@ class ShopController extends Controller
         return redirect()->back();
     }
 
-<<<<<<< HEAD
     public function postRestrictShop(Request $request, ShopService $service, $id)
     {
         $data = $request->only([
@@ -308,7 +297,8 @@ class ShopController extends Controller
 
         if($service->restrictShop($data, $id)) {
             flash('Shop limits updated successfully.')->success();
-=======
+        }
+    }
     /**********************************************************************************************
         SHOP CATEGORIES
     **********************************************************************************************/
@@ -423,7 +413,6 @@ class ShopController extends Controller
     {
         if($service->sortShopCategory($request->get('sort'))) {
             flash('Category order updated successfully.')->success();
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();

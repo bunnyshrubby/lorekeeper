@@ -10,7 +10,6 @@
 </h1>
 
 <div class="row shops-row">
-<<<<<<< HEAD
     @foreach($shops as $shop)
     @if($shop->is_staff)
         @if(auth::check() && auth::user()->isstaff)
@@ -20,7 +19,6 @@
         @include('shops._shop')
     @endif
     @endforeach
-=======
 @if($shops->count())
 @foreach($shops as $categoryId=>$categoryshops)
 <div class="col-md-12">
@@ -55,7 +53,6 @@
         </div>
 @endforeach
 @endif
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
 </div>
 
 @endsection

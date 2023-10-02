@@ -50,12 +50,9 @@ class ShopService extends Service
             }
             else $data['has_image'] = 0;
 
-<<<<<<< HEAD
             $data['is_timed_shop'] = isset($data['is_timed_shop']);
-=======
             if(isset($data['shop_category_id']) && $data['shop_category_id'] == 'none') $data['shop_category_id'] = null;
             if((isset($data['shop_category_id']) && $data['shop_category_id']) && !ShopCategory::where('id', $data['shop_category_id'])->exists()) throw new \Exception("The selected shop category is invalid.");
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
 
             $shop = Shop::create($data);
 
@@ -93,12 +90,9 @@ class ShopService extends Service
                 unset($data['image']);
             }
 
-<<<<<<< HEAD
             $data['is_timed_shop'] = isset($data['is_timed_shop']);
-=======
             if(isset($data['shop_category_id']) && $data['shop_category_id'] == 'none') $data['shop_category_id'] = null;
             if((isset($data['shop_category_id']) && $data['shop_category_id']) && !ShopCategory::where('id', $data['shop_category_id'])->exists()) throw new \Exception("The selected shop category is invalid.");
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
 
             $shop->update($data);
 
@@ -300,27 +294,12 @@ class ShopService extends Service
         return $this->rollbackReturn(false);
     }
 
-<<<<<<< HEAD
-    public function restrictShop($data, $id)
-=======
-    /**********************************************************************************************
-        SHOP CATEGORIES
-    **********************************************************************************************/
 
-    /**
-     * Create a category.
-     *
-     * @param  array                 $data
-     * @param  \App\Models\User\User $user
-     * @return \App\Models\Shop\ShopCategory|bool
-     */
-    public function createShopCategory($data, $user)
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
+    public function restrictShop($data, $id)
     {
         DB::beginTransaction();
 
         try {
-<<<<<<< HEAD
             if(!isset($data['is_restricted'])) $data['is_restricted'] = 0;
 
             $shop = Shop::find($id);
@@ -337,8 +316,29 @@ class ShopService extends Service
                         'item_id' => $type,
                     ]);
                 }
-=======
+            }
+        } catch(\Exception $e) {
+            $this->setError('error', $e->getMessage());
+        }
+        return $this->rollbackReturn(false);
 
+    }
+    /**********************************************************************************************
+    SHOP CATEGORIES
+    **********************************************************************************************/
+
+    /**
+    * Create a category.
+    *
+    * @param  array                 $data
+    * @param  \App\Models\User\User $user
+    * @return \App\Models\Shop\ShopCategory|bool
+    */
+    public function createShopCategory($data, $user)
+    {
+        DB::beginTransaction();
+
+        try {
             $data = $this->populateCategoryData($data);
 
             $image = null;
@@ -458,7 +458,6 @@ class ShopService extends Service
 
             foreach($sort as $key => $s) {
                 ShopCategory::where('id', $s)->update(['sort' => $key]);
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
             }
 
             return $this->commitReturn(true);
@@ -467,8 +466,4 @@ class ShopService extends Service
         }
         return $this->rollbackReturn(false);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d6e16235c04256743f39993479e84ed9ace52942
