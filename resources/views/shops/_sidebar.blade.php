@@ -13,19 +13,8 @@
     @endif
 
     @if($shops->count())
-    <li class="sidebar-section">
+<li class="sidebar-section">
         <div class="sidebar-section-header">Shops</div>
-        @foreach($shops as $shop)
-        @if($shop->is_staff)
-            @if(auth::check() && auth::user()->isstaff)
-                <div class="sidebar-item"><a href="{{ $shop->url }}" class="{{ set_active('shops/'.$shop->id) }}">{{ $shop->name }}</a></div>
-            @endif
-        @else
-            <div class="sidebar-item"><a href="{{ $shop->url }}" class="{{ set_active('shops/'.$shop->id) }}">{{ $shop->name }}</a></div>
-        @endif
-        @endforeach
-    </li>
-    <li class="sidebar-section">
         @foreach($shops as $categoryId=>$categoryshops)
             <div class="sidebar-section-header"> {!! isset($shopcategories[$categoryId]) ? ''.$shopcategories[$categoryId]->name.'' : 'Miscellaneous' !!}</div>
             @foreach($categoryshops->chunk(4) as $chunk)
@@ -35,5 +24,5 @@
             @endforeach
         @endforeach
         @endif
-    </li>
+</li>
 </ul>
