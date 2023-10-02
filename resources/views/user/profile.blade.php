@@ -116,11 +116,7 @@
                 @else
                     <div>No {{ __('awards.awards') }} earned.</div>
                 @endif
-            </div>
-            <div class="text-right"><a href="{{ $user->url.'/'.__('awards.awardcase') }}">View all...</a></div>
-        </div>
-    </div>
-    @if($user->is_deactivated)
+                @if($user->is_deactivated)
         <div class="alert alert-info text-center">
          <h1>{!! $user->displayName !!}</h1>
             <p>This account is currently deactivated, be it by staff or the user's own action. All information herein is hidden until the account is reactivated.</p>
@@ -131,5 +127,9 @@
          @include('user._profile_content', ['user' => $user, 'deactivated' => $user->is_deactivated])
         </div>
         @endif
-</div>
+            </div>
+            <div class="text-right"><a href="{{ $user->url.'/'.__('awards.awardcase') }}">View all...</a></div>
+        </div>
+    </div>
+
 @endsection
