@@ -48,6 +48,7 @@
                             </a>
                             <a class="dropdown-item" href="{{ url('wishlists') }}">
                                 Wishlists
+                            </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
