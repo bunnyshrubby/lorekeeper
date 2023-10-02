@@ -34,10 +34,10 @@ class AddSiteSettings extends Command
 
     /**
      * Add a site setting.
-     * 
+     *
      * Example usage:
      * $this->addSiteSetting("site_setting_key", 1, "0: does nothing. 1: does something.");
-     * 
+     *
      * @param  string  $key
      * @param  int     $value
      * @param  string  $description
@@ -103,9 +103,17 @@ class AddSiteSettings extends Command
 
         $this->addSiteSetting('group_currency', 1, 'ID of the group currency to award from gallery submissions (if enabled).');
 
+<<<<<<< HEAD
         $this->addSiteSetting('shop_type', 0, '0: Default, 1: Collapsible.');
         
         $this->addSiteSetting('default_theme', 0, 'ID of the default theme users should see. 0: Disabled, shows default lorekeeper. This setting is overwritten by the users theme setting.');
+=======
+        $this->addSiteSetting('deactivated_privacy', 0, 'Who can view the deactivated list? 0: Admin only, 1: Staff only, 2: Members only, 3: Public.');
+
+        $this->addSiteSetting('deactivated_link', 0, '0: No link to the deactivated list is displayed anywhere, 1: Link to the deactivated list is shown on the user list.');
+
+        $this->addSiteSetting('deactivated_key', 0, 'Optional key to view the deactivated list. Enter "0" to not require one.');
+>>>>>>> cc04431aae9d6f4ac19cd271fe9d904191571e04
 
         $this->line("\nSite settings up to date!");
 

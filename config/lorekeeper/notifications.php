@@ -291,6 +291,24 @@ return [
         'url' => 'account/bookmarks'
     ],
 
+<<<<<<< HEAD
+=======
+
+    // USER_REACTIVATED
+    103 => [
+        'name'      => 'User Reactivated',
+        'message'   => '<a href="{user_url}">{user_name}\'s</a> account has been reactivated by <a href="{staff_url}">{staff_name}</a>.',
+        'url'       => ''
+    ],
+
+    // USER_DEACTIVATED
+    104 => [
+        'name'      => 'User Deactivated',
+        'message'   => '<a href="{user_url}">{user_name}\'s</a> account has been deactivated by <a href="{staff_url}">{staff_name}</a>.',
+        'url'       => ''
+    ],
+
+>>>>>>> cc04431aae9d6f4ac19cd271fe9d904191571e04
     // REPORT_ASSIGNED
     220 => [
         'name' => 'Report Assigned',

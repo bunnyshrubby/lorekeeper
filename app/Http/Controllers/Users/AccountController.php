@@ -46,6 +46,18 @@ class AccountController extends Controller {
     }
 
     /**
+     * Shows the deactivation page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getDeactivated()
+    {
+        if(!Auth::user()->is_deactivated) return redirect()->to('/');
+        else return view('account.deactivated');
+    }
+
+
+    /**
      * Shows the user settings page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -134,6 +146,7 @@ class AccountController extends Controller {
         return redirect()->back();
     }
 
+<<<<<<< HEAD
     /**
      * Edits the user's faction from a list of factions that users can make their home.
      *
@@ -164,6 +177,8 @@ class AccountController extends Controller {
     }
 
 
+=======
+>>>>>>> cc04431aae9d6f4ac19cd271fe9d904191571e04
     /**
      * Changes the user's password.
      *
@@ -335,4 +350,66 @@ class AccountController extends Controller {
         }
         return redirect()->back();
     }
+
+
+    /**
+     * Show a user's deactivate confirmation page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getDeactivate()
+    {
+        return view('account.deactivate');
+    }
+
+    /**
+     * Show a user's deactivate confirmation page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getDeactivateConfirmation()
+    {
+        return view('account._deactivate_confirmation');
+    }
+
+    public function postDeactivate(Request $request, UserService $service)
+    {
+        $wasDeactivated = Auth::user()->is_deactivated;
+        if($service->deactivate(['deactivate_reason' => $request->get('deactivate_reason')], Auth::user(), null)) {
+            flash($wasDeactivated ? 'Deactivation reason edited successfully.' : 'Your account has successfully been deactivated. We hope to see you again and wish you the best!')->success();
+        }
+        else {
+            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        }
+        return redirect()->back();
+    }
+
+    /**
+     * Show a user's reactivate confirmation page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getReactivateConfirmation()
+    {
+        return view('account._reactivate_confirmation');
+    }
+
+    public function postReactivate(Request $request, UserService $service)
+    {
+        if($service->reactivate(Auth::user(), null)) {
+            flash('You have successfully successfully.')->success();
+        }
+        else {
+            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        }
+        return redirect()->back();
+    }
+
+
+
+
+
+
+
+
 }
