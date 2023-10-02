@@ -58,8 +58,7 @@
             </div>
         @endif
     </div>
-@endif
-@if($user->is_deactivated)
+    @if($user->is_deactivated)
         <div class="alert alert-info text-center">
          <h1>{!! $user->displayName !!}</h1>
             <p>This account is currently deactivated, be it by staff or the user's own action. All information herein is hidden until the account is reactivated.</p>
@@ -70,6 +69,7 @@
          @include('user._profile_content', ['user' => $user, 'deactivated' => $user->is_deactivated])
         </div>
         @endif
+@endif
 </div>
 
 
