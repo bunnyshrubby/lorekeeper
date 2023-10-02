@@ -19,6 +19,7 @@
             <p>This account is currently deactivated, be it by staff or the user's own action. All information herein is hidden until the account is reactivated.</p>
         @if(Auth::check() && Auth::user()->isStaff)
             <p class="mb-0">As you are staff, you can see the profile contents below and the sidebar contents.</p>
+        @endif
             @if(!$user->is_deactivated || Auth::check() && Auth::user()->isStaff)
     @include('user._profile_content', ['user' => $user, 'deactivated' => $user->is_deactivated])
     </div>
