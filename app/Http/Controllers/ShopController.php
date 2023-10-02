@@ -128,7 +128,6 @@ class ShopController extends Controller
             'stocks' => $stocks,
             'shops' => Shop::where('is_active', 1)->orderBy('sort', 'DESC')->get(),
             'categories' => $categories->keyBy('id'),
-            'items' => $items,
             'shopcategories' => $shopcategories->keyBy('id'),
             'shops' => $shops,
             'currencies' => Currency::whereIn('id', ShopStock::where('shop_id', $shop->id)->pluck('currency_id')->toArray())->get()->keyBy('id')
