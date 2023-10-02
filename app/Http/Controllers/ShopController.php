@@ -41,10 +41,9 @@ class ShopController extends Controller
             $shops = count($shopcategories) ? Shop::where('is_active', 1)->orderByRaw('FIELD(shop_category_id,'.implode(',', $shopcategories->pluck('id')->toArray()).')')->orderBy('name')->get()->groupBy('shop_category_id') : Shop::where('is_active', 1)->orderBy('name')->get()->groupBy('shop_category_id');
         
         return view('shops.index', [
-            'shops' => Shop::where('is_active', 1)->orderBy('sort', 'DESC')->get(),
             'shopcategories' => $shopcategories->keyBy('id'),
             'shops' => $shops,
-        ]);
+            ]);
     }
 
     /**
@@ -125,10 +124,8 @@ class ShopController extends Controller
 
         return view('shops.shop', [
             'shop' => $shop,
-            'stocks' => $stocks,
-            'shops' => Shop::where('is_active', 1)->orderBy('sort', 'DESC')->get(),
             'categories' => $categories->keyBy('id'),
-            'items' => $items->keyBy('id'),
+            'items' => $items,
             'shopcategories' => $shopcategories->keyBy('id'),
             'shops' => $shops,
             'currencies' => Currency::whereIn('id', ShopStock::where('shop_id', $shop->id)->pluck('currency_id')->toArray())->get()->keyBy('id')
