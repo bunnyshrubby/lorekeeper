@@ -13,7 +13,11 @@ class Shop extends Model
      * @var array
      */
     protected $fillable = [
+<<<<<<< HEAD
         'name', 'sort', 'has_image', 'description', 'parsed_description', 'is_active', 'is_staff', 'use_coupons', 'is_restricted', 'is_fto', 'allowed_coupons', 'is_timed_shop', 'start_at', 'end_at'
+=======
+        'name', 'sort', 'has_image', 'description', 'parsed_description', 'is_active', 'shop_category_id'
+>>>>>>> d6e16235c04256743f39993479e84ed9ace52942
     ];
 
     /**
@@ -32,6 +36,7 @@ class Shop extends Model
         'name' => 'required|unique:item_categories|between:3,100',
         'description' => 'nullable',
         'image' => 'mimes:png',
+        'shop_category_id' => 'nullable',
     ];
 
     /**
@@ -43,6 +48,7 @@ class Shop extends Model
         'name' => 'required|between:3,100',
         'description' => 'nullable',
         'image' => 'mimes:png',
+        'shop_category_id' => 'nullable',
     ];
 
     /**********************************************************************************************
@@ -76,6 +82,14 @@ class Shop extends Model
     public function limits()
     {
         return $this->hasMany('App\Models\Shop\ShopLimit', 'shop_id');
+    }
+
+        /**
+     * Get the category the shop belongs to.
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Shop\ShopCategory', 'shop_category_id');
     }
 
     /**********************************************************************************************

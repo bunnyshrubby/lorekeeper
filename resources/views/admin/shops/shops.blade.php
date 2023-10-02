@@ -9,8 +9,10 @@
 
 <p>This is a list of shops that users can use currency to purchase from.</p> 
 <p>The sorting order reflects the order in which the shops will be listed on the shop index.</p>
-
-<div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/data/shops/create') }}"><i class="fas fa-plus"></i> Create New Shop</a></div>
+<div class="text-right mb-3">
+    <a class="btn btn-primary" href="{{ url('admin/data/shops/shop-categories') }}"><i class="fas fa-folder"></i> Shop Categories</a>
+    <a class="btn btn-primary" href="{{ url('admin/data/shops/create') }}"><i class="fas fa-plus"></i> Create New Shop</a>
+</div>
 @if(!count($shops))
     <p>No item shops found.</p>
 @else 
@@ -23,6 +25,9 @@
                         @if($shop->is_staff)<i class="fas fa-crown mr-1"></i>@endif
                         {!! $shop->displayName !!}
                         @if($shop->is_timed_shop)<i class="fas fa-clock"></i>  @endif
+                    </td>
+                    <td>
+                    {{ $shop->category ? $shop->category->name : '' }}
                     </td>
                     <td class="text-right">
                         <a href="{{ url('admin/data/shops/edit/'.$shop->id) }}" class="btn btn-primary">Edit</a>
