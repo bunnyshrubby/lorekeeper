@@ -28,14 +28,6 @@
 
         <div class="card-body" id="{!! isset($shopcategories[$categoryId]) ? str_replace(' ', '', $shopcategories[$categoryId]->name) : 'miscellaneous' !!}">
             @foreach($categoryshops->chunk(4) as $chunk)
-            @if($shop->is_staff)
-        @if(auth::check() && auth::user()->isstaff)
-            @include('shops._shop')
-        @endif
-    @else
-        @include('shops._shop')
-    @endif
-    @endforeach
                 <div class="row mb-3">
                     @foreach($chunk as $shopId=>$shop)
                         <div class="col-md-3 col-6 mb-3 text-center">
