@@ -6,7 +6,6 @@ use DB;
 use Settings;
 use Auth;
 use File;
-use Settings;
 use Notifications;
 use Image;
 use Carbon\Carbon;
@@ -89,7 +88,6 @@ class UserService extends Service
     }
 
     /**
-<<<<<<< HEAD
      * Updates a user. Used in modifying the admin user on the command line.
      *
      * @param  array  $data
@@ -163,8 +161,6 @@ class UserService extends Service
     }
 
     /**
-=======
->>>>>>> cc04431aae9d6f4ac19cd271fe9d904191571e04
      * Updates the user's password.
      *
      * @param  array                  $data
@@ -231,7 +227,6 @@ class UserService extends Service
     }
 
     /**
-<<<<<<< HEAD
      * Updates the user's theme.
      *
      * @param  array                  $data
@@ -247,8 +242,6 @@ class UserService extends Service
     }
 
     /**
-=======
->>>>>>> cc04431aae9d6f4ac19cd271fe9d904191571e04
      * Updates the user's avatar.
      *
      * @param  array                  $data
@@ -404,8 +397,6 @@ class UserService extends Service
         }
         return $this->rollbackReturn(false);
     }
-<<<<<<< HEAD
-=======
 
 
 
@@ -526,7 +517,7 @@ class UserService extends Service
 
             Notifications::create('USER_REACTIVATED', User::find(Settings::get('admin_user')), [
                 'user_url' => $user->url,
-                'user_name' => uc_first($user->name),
+                'user_name' => ucfirst($user->name),
                 'staff_url' => $staff->url,
                 'staff_name' => $staff->name,
             ]);
@@ -537,5 +528,4 @@ class UserService extends Service
         }
         return $this->rollbackReturn(false);
     }
->>>>>>> cc04431aae9d6f4ac19cd271fe9d904191571e04
 }

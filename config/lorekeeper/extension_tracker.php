@@ -12,7 +12,6 @@ return [
     //     'version' => '1.0.0',
     // ],
 
-<<<<<<< HEAD
     'second_subtype' => [
         'key' => 'second_subtype',
         'wiki_key' => 'Second_Subtype',
@@ -100,7 +99,8 @@ return [
         ]),
         'version' => '1.4.0',
     ],
-=======
+
+    
     'deactivate_account' => [
         'key'       => 'deactivate_account',
         'wiki_key'  =>  'Deactivate_Account',
@@ -110,5 +110,4 @@ return [
         'version'   => '1.0.0',
     ],
 
->>>>>>> cc04431aae9d6f4ac19cd271fe9d904191571e04
 ];

@@ -291,8 +291,6 @@ return [
         'url' => 'account/bookmarks'
     ],
 
-<<<<<<< HEAD
-=======
 
     // USER_REACTIVATED
     103 => [
@@ -308,7 +306,6 @@ return [
         'url'       => ''
     ],
 
->>>>>>> cc04431aae9d6f4ac19cd271fe9d904191571e04
     // REPORT_ASSIGNED
     220 => [
         'name' => 'Report Assigned',

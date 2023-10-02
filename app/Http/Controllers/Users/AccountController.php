@@ -146,7 +146,6 @@ class AccountController extends Controller {
         return redirect()->back();
     }
 
-<<<<<<< HEAD
     /**
      * Edits the user's faction from a list of factions that users can make their home.
      *
@@ -177,8 +176,6 @@ class AccountController extends Controller {
     }
 
 
-=======
->>>>>>> cc04431aae9d6f4ac19cd271fe9d904191571e04
     /**
      * Changes the user's password.
      *
