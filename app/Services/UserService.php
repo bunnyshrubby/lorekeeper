@@ -87,6 +87,7 @@ class UserService extends Service
     }
 
     /**
+<<<<<<< HEAD
      * Updates a user. Used in modifying the admin user on the command line.
      *
      * @param  array  $data
@@ -160,6 +161,8 @@ class UserService extends Service
     }
 
     /**
+=======
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
      * Updates the user's password.
      *
      * @param  array                  $data
@@ -226,6 +229,24 @@ class UserService extends Service
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Updates the user's theme.
+     *
+     * @param  array                  $data
+     * @param  \App\Models\User\User  $user
+     * @return bool
+     */
+    public function updateTheme($data, $user)
+    {
+        $user->theme_id = $data['theme'];
+        $user->decorator_theme_id = $data['decorator_theme'];
+        $user->save();
+        return true;
+    }
+
+    /**
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
      * Updates the user's avatar.
      *
      * @param  array                  $data

@@ -22,6 +22,7 @@ use App\Models\Currency\CurrencyLog;
 use App\Models\Gallery\GallerySubmission;
 use App\Models\Gallery\GalleryCollaborator;
 use App\Models\Gallery\GalleryFavorite;
+<<<<<<< HEAD
 use App\Models\Item\ItemLog;
 use App\Models\Rank\RankPower;
 use App\Models\Report\Report;
@@ -34,6 +35,9 @@ use App\Models\WorldExpansion\FactionRank;
 use App\Models\WorldExpansion\FactionRankMember;
 use App\Models\Trade;
 
+=======
+use App\Models\Theme;
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
 use App\Traits\Commenter;
 
 
@@ -47,7 +51,11 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
+<<<<<<< HEAD
         'name', 'alias', 'rank_id', 'email', 'password', 'is_news_unread', 'is_banned', 'has_alias', 'avatar', 'is_sales_unread', 'birthday', 'last_seen', 'home_id', 'home_changed', 'faction_id', 'faction_changed'
+=======
+        'name', 'alias', 'rank_id', 'email', 'password', 'is_news_unread', 'is_banned', 'has_alias', 'avatar', 'is_sales_unread', 'theme_id', 'decorator_theme_id', 'birthday'
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
     ];
 
     /**
@@ -104,6 +112,32 @@ class User extends Authenticatable implements MustVerifyEmail
     public function settings()
     {
         return $this->hasOne('App\Models\User\UserSettings');
+    }
+
+    /**
+     * Get user theme.
+     */
+    public function theme()
+    {
+        return $this->belongsTo('App\Models\Theme');
+    }
+
+    /**
+     * Get user decorator .
+     */
+    public function decoratorTheme() {
+        return $this->belongsTo('App\Models\Theme', 'decorator_theme_id');
+    }
+
+
+    /**
+     * Get User Granted Themes 
+     */
+    /**
+     * Get user theme.
+     */
+    public function themes() {
+        return $this->belongsToMany('App\Models\Theme', 'user_themes')->withPivot('id');
     }
 
     /**
@@ -249,6 +283,18 @@ class User extends Authenticatable implements MustVerifyEmail
 
     **********************************************************************************************/
 
+    /**
+     * Checks if the user has the named recipe
+     *
+     * @return bool
+     */
+    public function hasTheme($theme_id) {
+        $theme = Theme::find($theme_id);
+        $user_has = $this->recipes && $this->recipes->contains($theme);
+        $default = $theme->is_user_selectable;
+        return $default ? true : $user_has;
+    }
+    
     /**
      * Get the user's alias.
      *

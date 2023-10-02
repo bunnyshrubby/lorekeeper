@@ -7,22 +7,26 @@ use Settings;
 use File;
 use Image;
 
+use App\Models\Theme;
 use App\Models\User\User;
 use App\Models\User\UserAlias;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Notification;
+<<<<<<< HEAD
 use App\Models\WorldExpansion\Location;
 use App\Models\WorldExpansion\Faction;
+=======
+use App\Models\ThemeEditor;
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
 
 use App\Services\UserService;
 use App\Services\LinkService;
 
 use App\Http\Controllers\Controller;
 
-class AccountController extends Controller
-{
+class AccountController extends Controller {
     /*
     |--------------------------------------------------------------------------
     | Account Controller
@@ -37,9 +41,8 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Http\RedirectResponse
      */
-    public function getBanned()
-    {
-        if(Auth::user()->is_banned)
+    public function getBanned() {
+        if (Auth::user()->is_banned)
             return view('account.banned');
         else
             return redirect()->to('/');
@@ -50,6 +53,7 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+<<<<<<< HEAD
     public function getSettings()
     {
         $interval = array(
@@ -69,6 +73,24 @@ class AccountController extends Controller
             'char_enabled' => Settings::get('WE_character_locations'),
             'char_faction_enabled' => Settings::get('WE_character_factions'),
             'location_interval' => $interval[Settings::get('WE_change_timelimit')]
+=======
+    public function getSettings() {
+        $user = Auth::user();
+
+        if ($user->isStaff || $user->isAdmin) {
+            // staff can see all active themes
+            $themeOptions = ['0' => 'Select Theme'] + Theme::where('is_active', 1)->where('theme_type', 'base')->get()->pluck('displayName', 'id')->toArray();
+        } else {
+            // members can only see active themes that are user selectable
+            $themeOptions = ['0' => 'Select Theme'] + Theme::where('is_active', 1)->where('theme_type', 'base')->where('is_user_selectable', 1)->get()->pluck('displayName', 'id')->toArray();
+        }
+
+        $decoratorOptions = ['0' => 'Select Decorator Theme'] + Theme::where('is_active', 1)->where('theme_type', 'decorator')->where('is_user_selectable', 1)->get()->pluck('displayName', 'id')->toArray();
+
+        return view('account.settings', [
+            'themeOptions' => $themeOptions + Auth::user()->themes()->where('theme_type', 'base')->get()->pluck('displayName', 'id')->toArray(),
+            'decoratorThemes' => $decoratorOptions + Auth::user()->themes()->where('theme_type', 'decorator')->get()->pluck('displayName', 'id')->toArray(),
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
         ]);
     }
 
@@ -78,8 +100,7 @@ class AccountController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postProfile(Request $request)
-    {
+    public function postProfile(Request $request) {
         Auth::user()->profile->update([
             'text' => $request->get('text'),
             'parsed_text' => parse($request->get('text'))
@@ -94,23 +115,26 @@ class AccountController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postAvatar(Request $request, UserService $service)
-    {
-        if($service->updateAvatar($request->file('avatar'), Auth::user())) {
+    public function postAvatar(Request $request, UserService $service) {
+        if ($service->updateAvatar($request->file('avatar'), Auth::user())) {
             flash('Avatar updated successfully.')->success();
-        }
-        else {
-            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        } else {
+            foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
         return redirect()->back();
     }
 
     /**
+<<<<<<< HEAD
      * Edits the user's location from a list of locations that users can make their home.
+=======
+     * Edits the user's theme.
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
+<<<<<<< HEAD
     public function postLocation(Request $request, UserService $service)
     {
         if($service->updateLocation($request->input('location'), Auth::user())) {
@@ -135,6 +159,13 @@ class AccountController extends Controller
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+=======
+    public function postTheme(Request $request, UserService $service) {
+        if ($service->updateTheme($request->only(['theme', 'decorator_theme']), Auth::user())) {
+            flash('Theme updated successfully.')->success();
+        } else {
+            foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
         }
         return redirect()->back();
     }
@@ -147,17 +178,15 @@ class AccountController extends Controller
      * @param  App\Services\UserService  $service
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postPassword(Request $request, UserService $service)
-    {
-        $request->validate( [
+    public function postPassword(Request $request, UserService $service) {
+        $request->validate([
             'old_password' => 'required|string',
             'new_password' => 'required|string|min:8|confirmed'
         ]);
-        if($service->updatePassword($request->only(['old_password', 'new_password', 'new_password_confirmation']), Auth::user())) {
+        if ($service->updatePassword($request->only(['old_password', 'new_password', 'new_password_confirmation']), Auth::user())) {
             flash('Password updated successfully.')->success();
-        }
-        else {
-            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        } else {
+            foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
         return redirect()->back();
     }
@@ -169,16 +198,14 @@ class AccountController extends Controller
      * @param  App\Services\UserService  $service
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postEmail(Request $request, UserService $service)
-    {
-        $request->validate( [
+    public function postEmail(Request $request, UserService $service) {
+        $request->validate([
             'email' => 'required|string|email|max:255|unique:users'
         ]);
-        if($service->updateEmail($request->only(['email']), Auth::user())) {
+        if ($service->updateEmail($request->only(['email']), Auth::user())) {
             flash('Email updated successfully. A verification email has been sent to your new email address.')->success();
-        }
-        else {
-            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        } else {
+            foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
         return redirect()->back();
     }
@@ -190,13 +217,11 @@ class AccountController extends Controller
      * @param  App\Services\UserService  $service
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postBirthday(Request $request, UserService $service)
-    {
-        if($service->updateDOB($request->input('birthday_setting'), Auth::user())) {
+    public function postBirthday(Request $request, UserService $service) {
+        if ($service->updateDOB($request->input('birthday_setting'), Auth::user())) {
             flash('Setting updated successfully.')->success();
-        }
-        else {
-            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        } else {
+            foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
         return redirect()->back();
     }
@@ -206,8 +231,7 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getNotifications()
-    {
+    public function getNotifications() {
         $notifications = Auth::user()->notifications()->orderBy('id', 'DESC')->paginate(30);
         Auth::user()->notifications()->update(['is_unread' => 0]);
         Auth::user()->notifications_unread = 0;
@@ -223,10 +247,9 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getDeleteNotification($id)
-    {
+    public function getDeleteNotification($id) {
         $notification = Notification::where('id', $id)->where('user_id', Auth::user()->id)->first();
-        if($notification) $notification->delete();
+        if ($notification) $notification->delete();
         return response(200);
     }
 
@@ -235,9 +258,8 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postClearNotifications($type = null)
-    {
-        if(isset($type) && $type) Auth::user()->notifications()->where('notification_type_id', $type)->delete();
+    public function postClearNotifications($type = null) {
+        if (isset($type) && $type) Auth::user()->notifications()->where('notification_type_id', $type)->delete();
         else Auth::user()->notifications()->delete();
         flash('Notifications cleared successfully.')->success();
         return redirect()->back();
@@ -248,8 +270,7 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getAliases()
-    {
+    public function getAliases() {
         return view('account.aliases');
     }
 
@@ -258,8 +279,7 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getMakePrimary($id)
-    {
+    public function getMakePrimary($id) {
         return view('account._make_primary_modal', ['alias' => UserAlias::where('id', $id)->where('user_id', Auth::user()->id)->first()]);
     }
 
@@ -268,13 +288,11 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postMakePrimary(LinkService $service, $id)
-    {
-        if($service->makePrimary($id, Auth::user())) {
+    public function postMakePrimary(LinkService $service, $id) {
+        if ($service->makePrimary($id, Auth::user())) {
             flash('Your primary alias has been changed successfully.')->success();
-        }
-        else {
-            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        } else {
+            foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
         return redirect()->back();
     }
@@ -284,8 +302,7 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getHideAlias($id)
-    {
+    public function getHideAlias($id) {
         return view('account._hide_alias_modal', ['alias' => UserAlias::where('id', $id)->where('user_id', Auth::user()->id)->first()]);
     }
 
@@ -294,13 +311,11 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postHideAlias(LinkService $service, $id)
-    {
-        if($service->hideAlias($id, Auth::user())) {
+    public function postHideAlias(LinkService $service, $id) {
+        if ($service->hideAlias($id, Auth::user())) {
             flash('Your alias\'s visibility setting has been changed successfully.')->success();
-        }
-        else {
-            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        } else {
+            foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
         return redirect()->back();
     }
@@ -310,8 +325,7 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getRemoveAlias($id)
-    {
+    public function getRemoveAlias($id) {
         return view('account._remove_alias_modal', ['alias' => UserAlias::where('id', $id)->where('user_id', Auth::user()->id)->first()]);
     }
 
@@ -320,13 +334,11 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postRemoveAlias(LinkService $service, $id)
-    {
-        if($service->removeAlias($id, Auth::user())) {
+    public function postRemoveAlias(LinkService $service, $id) {
+        if ($service->removeAlias($id, Auth::user())) {
             flash('Your alias has been removed successfully.')->success();
-        }
-        else {
-            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        } else {
+            foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
         return redirect()->back();
     }

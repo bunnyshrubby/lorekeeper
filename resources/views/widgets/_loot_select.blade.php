@@ -14,6 +14,7 @@
         @if($loots)
             @foreach($loots as $loot)
                 <tr class="loot-row">
+<<<<<<< HEAD
                     <td>{!! Form::select('rewardable_type[]', ['Item' => 'Item', 'Currency' => 'Currency', 'Award' => ucfirst(__('awards.award'))] + ($showLootTables ? ['LootTable' => 'Loot Table'] : []) + ($showRaffles ? ['Raffle' => 'Raffle Ticket'] : []), (isset($progression) && $progression ? $loot->type : $loot->rewardable_type), ['class' => 'form-control reward-type', 'placeholder' => (isset($progression) && $progression ? 'Select Progression Type' : 'Select Reward Type')]) !!}</td>
                     <td class="loot-row-select">
                             @if($loot->rewardable_type == 'Item')
@@ -27,6 +28,21 @@
                             @elseif($showRaffles && $loot->rewardable_type == 'Raffle')
                                 {!! Form::select('rewardable_id[]', $raffles, $loot->rewardable_id, ['class' => 'form-control raffle-select selectize', 'placeholder' => 'Select Raffle']) !!}
                             @endif
+=======
+                    <td>{!! Form::select('rewardable_type[]', ['Item' => 'Item', 'Currency' => 'Currency'] + ($showLootTables ? ['LootTable' => 'Loot Table'] : []) + ($showRaffles ? ['Raffle' => 'Raffle Ticket'] : []) + (isset($showThemes) && $showThemes ? ['Theme' => 'Theme'] : []), $loot->rewardable_type, ['class' => 'form-control reward-type', 'placeholder' => 'Select Reward Type']) !!}</td>
+                    <td class="loot-row-select">
+                        @if($loot->rewardable_type == 'Item')
+                            {!! Form::select('rewardable_id[]', $items, $loot->rewardable_id, ['class' => 'form-control item-select selectize', 'placeholder' => 'Select Item']) !!}
+                        @elseif($loot->rewardable_type == 'Currency')
+                            {!! Form::select('rewardable_id[]', $currencies, $loot->rewardable_id, ['class' => 'form-control currency-select selectize', 'placeholder' => 'Select Currency']) !!}
+                        @elseif($showLootTables && $loot->rewardable_type == 'LootTable')
+                            {!! Form::select('rewardable_id[]', $tables, $loot->rewardable_id, ['class' => 'form-control table-select selectize', 'placeholder' => 'Select Loot Table']) !!}
+                        @elseif($showRaffles && $loot->rewardable_type == 'Raffle')
+                            {!! Form::select('rewardable_id[]', $raffles, $loot->rewardable_id, ['class' => 'form-control raffle-select selectize', 'placeholder' => 'Select Raffle']) !!}
+                        @elseif(isset($showThemes) && $showThemes && $loot->rewardable_type == 'Theme')
+                            {!! Form::select('rewardable_id[]', $themes, $loot->rewardable_id, ['class' => 'form-control theme-select selectize', 'placeholder' => 'Select Theme']) !!}
+                        @endif
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
                     </td>
                     <td>{!! Form::text('quantity[]', $loot->quantity, ['class' => 'form-control']) !!}</td>
                     <td class="text-right"><a href="#" class="btn btn-danger remove-loot-button">Remove</a></td>

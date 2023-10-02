@@ -25,6 +25,7 @@ return [
         'background_color' => '#1fd1a7'
     ],
 
+<<<<<<< HEAD
     'coupon' => [
         'name' => 'Coupon',
         'text_color' => '#ffffff',
@@ -35,4 +36,11 @@ return [
         'text_color' => '#ffffff',
         'background_color' => '#56639E'
     ],
+=======
+    'theme' => [
+        'name' => 'Theme',
+        'text_color' => "#ffffff",
+        'background_color' => '#573f7e'
+    ]
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
 ];

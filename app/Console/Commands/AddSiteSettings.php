@@ -103,7 +103,13 @@ class AddSiteSettings extends Command
 
         $this->addSiteSetting('group_currency', 1, 'ID of the group currency to award from gallery submissions (if enabled).');
 
+<<<<<<< HEAD
         $this->addSiteSetting('shop_type', 0, '0: Default, 1: Collapsible.');
+=======
+        $this->addSiteSetting('default_theme', 0, 'ID of the default theme users should see. 0: Disabled, shows default lorekeeper. This setting is overwritten by the users theme setting.');
+
+        $this->line("\nSite settings up to date!");
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
 
         $this->addSiteSetting('coupon_settings', 0, '0: Percentage is taken from total (e.g 20% from 2 items costing a total of 100 = 80), 1: Percentage is taken from item (e.g 20% from 2 items costing a total of 100 = 90)');
         

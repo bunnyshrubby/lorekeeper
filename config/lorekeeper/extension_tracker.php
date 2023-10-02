@@ -12,6 +12,7 @@ return [
     //     'version' => '1.0.0',
     // ],
 
+<<<<<<< HEAD
     'second_subtype' => [
         'key' => 'second_subtype',
         'wiki_key' => 'Second_Subtype',
@@ -77,4 +78,20 @@ return [
         ]),
         'version' => '2.0.0',
     ],
+=======
+
+
+    'theme_manager' => [
+        'key' => 'theme_manager',
+        'wiki_key' => 'Theme Manager',
+        'creators' => json_encode([
+            'Uri' => 'https://github.com/preimpression/',
+            'Cylunny' => 'https://toyhou.se/cylunny',
+            'moif' => 'https://toyhou.se/moif'
+        ]),
+        'version' => '2.0.0', // Big update with Cylunny's Theme manager + Moif's work merging the two!
+    ],
+
+
+>>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
 ];
