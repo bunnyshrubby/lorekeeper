@@ -22,7 +22,6 @@ use App\Models\Currency\CurrencyLog;
 use App\Models\Gallery\GallerySubmission;
 use App\Models\Gallery\GalleryCollaborator;
 use App\Models\Gallery\GalleryFavorite;
-<<<<<<< HEAD
 use App\Models\Item\ItemLog;
 use App\Models\Rank\RankPower;
 use App\Models\Report\Report;
@@ -35,9 +34,7 @@ use App\Models\WorldExpansion\FactionRank;
 use App\Models\WorldExpansion\FactionRankMember;
 use App\Models\Trade;
 
-=======
 use App\Models\Theme;
->>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
 use App\Traits\Commenter;
 
 
@@ -51,11 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-<<<<<<< HEAD
-        'name', 'alias', 'rank_id', 'email', 'password', 'is_news_unread', 'is_banned', 'has_alias', 'avatar', 'is_sales_unread', 'birthday', 'last_seen', 'home_id', 'home_changed', 'faction_id', 'faction_changed'
-=======
-        'name', 'alias', 'rank_id', 'email', 'password', 'is_news_unread', 'is_banned', 'has_alias', 'avatar', 'is_sales_unread', 'theme_id', 'decorator_theme_id', 'birthday'
->>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
+        'name', 'alias', 'rank_id', 'email', 'password', 'is_news_unread', 'is_banned', 'has_alias', 'avatar', 'is_sales_unread', 'birthday', 'last_seen', 'home_id', 'home_changed', 'faction_id', 'faction_changed', 'theme_id', 'decorator_theme_id'
     ];
 
     /**

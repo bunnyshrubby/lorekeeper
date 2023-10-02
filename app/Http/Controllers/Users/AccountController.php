@@ -14,12 +14,9 @@ use App\Models\User\UserAlias;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Notification;
-<<<<<<< HEAD
 use App\Models\WorldExpansion\Location;
 use App\Models\WorldExpansion\Faction;
-=======
 use App\Models\ThemeEditor;
->>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
 
 use App\Services\UserService;
 use App\Services\LinkService;
@@ -53,7 +50,6 @@ class AccountController extends Controller {
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-<<<<<<< HEAD
     public function getSettings()
     {
         $interval = array(
@@ -73,8 +69,8 @@ class AccountController extends Controller {
             'char_enabled' => Settings::get('WE_character_locations'),
             'char_faction_enabled' => Settings::get('WE_character_factions'),
             'location_interval' => $interval[Settings::get('WE_change_timelimit')]
-=======
-    public function getSettings() {
+        ]);
+
         $user = Auth::user();
 
         if ($user->isStaff || $user->isAdmin) {
@@ -90,7 +86,6 @@ class AccountController extends Controller {
         return view('account.settings', [
             'themeOptions' => $themeOptions + Auth::user()->themes()->where('theme_type', 'base')->get()->pluck('displayName', 'id')->toArray(),
             'decoratorThemes' => $decoratorOptions + Auth::user()->themes()->where('theme_type', 'decorator')->get()->pluck('displayName', 'id')->toArray(),
->>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
         ]);
     }
 
@@ -125,16 +120,11 @@ class AccountController extends Controller {
     }
 
     /**
-<<<<<<< HEAD
      * Edits the user's location from a list of locations that users can make their home.
-=======
-     * Edits the user's theme.
->>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-<<<<<<< HEAD
     public function postLocation(Request $request, UserService $service)
     {
         if($service->updateLocation($request->input('location'), Auth::user())) {
@@ -159,13 +149,18 @@ class AccountController extends Controller {
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
-=======
-    public function postTheme(Request $request, UserService $service) {
+        }
+    }
+            
+    /**
+     * Edits the user's theme.
+     */
+    public function postTheme(Request $request, UserService $service)
+    {
         if ($service->updateTheme($request->only(['theme', 'decorator_theme']), Auth::user())) {
             flash('Theme updated successfully.')->success();
         } else {
             foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
->>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
         }
         return redirect()->back();
     }

@@ -12,7 +12,6 @@ return [
     //     'version' => '1.0.0',
     // ],
 
-<<<<<<< HEAD
     'second_subtype' => [
         'key' => 'second_subtype',
         'wiki_key' => 'Second_Subtype',
@@ -78,7 +77,6 @@ return [
         ]),
         'version' => '2.0.0',
     ],
-=======
 
 
     'theme_manager' => [
@@ -93,5 +91,4 @@ return [
     ],
 
 
->>>>>>> 79aaa125176b6fd9b6c0580a167f8303f6cb68df
 ];
