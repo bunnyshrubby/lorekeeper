@@ -12,7 +12,6 @@ return [
     //     'version' => '1.0.0',
     // ],
 
-<<<<<<< HEAD
     'second_subtype' => [
         'key' => 'second_subtype',
         'wiki_key' => 'Second_Subtype',
@@ -92,7 +91,6 @@ return [
     ],
 
 
-=======
     'wishlists' => [
         'key' => 'wishlists',
         'wiki_key' => 'Wishlists',
@@ -101,5 +99,4 @@ return [
         ]),
         'version' => '1.4.0',
     ],
->>>>>>> 2c0987c1e90c66ca24d40369fa5896d7d1f33557
 ];

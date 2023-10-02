@@ -3,10 +3,6 @@
 @else
     <div class="text-center mb-3">
         <div class="mb-1"><a href="{{ $stock->item->idUrl }}"><img src="{{ $stock->item->imageUrl }}" alt="{{ $stock->item->name }}" /></a></div>
-<<<<<<< HEAD
-        <div><a href="{{ $stock->item->idUrl }}"><strong>{{ $stock->item->name }}</strong></a></div>
-        <div><strong>Cost: </strong> {!! $stock->currency->display($stock->displayCost) !!}</div>
-=======
         <div>
             <a href="{{ $stock->item->idUrl }}"><strong>{{ $stock->item->name }}</strong></a>
             @if(Auth::check())
@@ -14,7 +10,6 @@
             @endif
         </div>
         <div><strong>Cost: </strong> {!! $stock->currency->display($stock->cost) !!}</div>
->>>>>>> 2c0987c1e90c66ca24d40369fa5896d7d1f33557
         @if($stock->is_limited_stock) <div>Stock: {{ $stock->quantity }}</div> @endif
         @if($stock->purchase_limit) <div class="text-danger">Max {{ $stock->purchase_limit }} @if($stock->purchase_limit_timeframe !== 'lifetime') {{ $stock->purchase_limit_timeframe }} @endif per user</div> @endif
         @if($stock->disallow_transfer) <div class="text-danger">Cannot be transferred after purchase</div> @endif

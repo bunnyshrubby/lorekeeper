@@ -56,14 +56,14 @@ Route::group(['prefix' => 'inventory', 'namespace' => 'Users'], function() {
     Route::get('selector', 'InventoryController@getSelector');
 });
 
-<<<<<<< HEAD
 Route::group(['prefix' => __('awards.awardcase'), 'namespace' => 'Users'], function() {
     Route::get('/', 'AwardCaseController@getIndex');
     Route::post('edit', 'AwardCaseController@postEdit');
     Route::post('claim/{id}', 'AwardCaseController@postClaimAward');
 
     Route::get('selector', 'AwardCaseController@getSelector');
-=======
+});
+
 Route::group(['prefix' => 'wishlists', 'namespace' => 'Users'], function() {
     Route::get('/', 'WishlistController@getIndex');
     Route::get('create', 'WishlistController@getCreateWishlist');
@@ -80,7 +80,6 @@ Route::group(['prefix' => 'wishlists', 'namespace' => 'Users'], function() {
     Route::post('{id}/update/{item_id}', 'WishlistController@postCreateEditWishlistItem')->where('id', '[0-9]+')->where('item_id', '[0-9]+');
     Route::post('move/{item_id}', 'WishlistController@postMoveWishlistItem')->where('item_id', '[0-9]+');
     Route::post('{id}/move/{item_id}', 'WishlistController@postMoveWishlistItem')->where('id', '[0-9]+')->where('item_id', '[0-9]+');
->>>>>>> 2c0987c1e90c66ca24d40369fa5896d7d1f33557
 });
 
 Route::group(['prefix' => 'characters', 'namespace' => 'Users'], function() {
