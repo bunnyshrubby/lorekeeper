@@ -10,15 +10,6 @@
 </h1>
 
 <div class="row shops-row">
-    @foreach($shops as $shop)
-    @if($shop->is_staff)
-        @if(auth::check() && auth::user()->isstaff)
-            @include('shops._shop')
-        @endif
-    @else
-        @include('shops._shop')
-    @endif
-    @endforeach
 @if($shops->count())
 @foreach($shops as $categoryId=>$categoryshops)
 <div class="col-md-12">
