@@ -69,7 +69,8 @@
         </div>
             @endif
     </div>
-
+@endif
+</div>
 
 
 <div class="card-deck mb-4 profile-assets" style="clear:both;">
