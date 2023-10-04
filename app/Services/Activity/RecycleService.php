@@ -10,6 +10,7 @@ use App\Models\Raffle\Raffle;
 use App\Models\User\UserItem;
 use App\Services\InventoryManager;
 use App\Services\Service;
+use App\Models\Award\Award;
 
 use DB;
 use Auth;
@@ -33,6 +34,7 @@ class RecycleService extends Service {
       'currencies' => Currency::where('is_user_owned', 1)->orderBy('name')->pluck('name', 'id'),
       'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
       'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
+      'awards' => Award::orderBy('name')->pluck('name', 'id'),
     ];
   }
 
