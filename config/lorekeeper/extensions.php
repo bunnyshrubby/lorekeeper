@@ -23,7 +23,7 @@ return [
     'navbar_news_notif' => 1,
 
     // Species Trait Index - Mercury
-    'species_trait_index' => 1,
+    'species_trait_index' => 0,
 
     // Character Status Badges - Juni
     'character_status_badges' => 1,
@@ -37,7 +37,7 @@ return [
     // Item Entry Expansion - Mercury
     'item_entry_expansion' => [
         'extra_fields' => 1,
-        'resale_function' => 1,
+        'resale_function' => 0,
         'loot_tables' => [
             // Adds the ability to use either rarity criteria for items or item categories with rarity criteria in loot tables. Note that disabling this does not apply retroactively.
             'enable' => 1,
