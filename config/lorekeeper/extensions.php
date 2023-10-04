@@ -23,7 +23,7 @@ return [
     'navbar_news_notif' => 1,
 
     // Species Trait Index - Mercury
-    'species_trait_index' => 0,
+    'species_trait_index' => 1,
 
     // Character Status Badges - Juni
     'character_status_badges' => 1,
@@ -41,7 +41,7 @@ return [
         'loot_tables' => [
             // Adds the ability to use either rarity criteria for items or item categories with rarity criteria in loot tables. Note that disabling this does not apply retroactively.
             'enable' => 1,
-            'alternate_filtering' => 1 // By default this uses more broadly compatible methods to filter by rarity. If you are on Dreamhost/know your DB software can handle searching in JSON, it's recommended to set this to 1 instead.
+            'alternate_filtering' => 0 // By default this uses more broadly compatible methods to filter by rarity. If you are on Dreamhost/know your DB software can handle searching in JSON, it's recommended to set this to 1 instead.
         ],
     ],
 
