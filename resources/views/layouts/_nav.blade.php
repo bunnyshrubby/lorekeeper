@@ -77,14 +77,14 @@
                                 Design Approvals
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
-                                Character Transfers
-                            </a>
                             <a class="dropdown-item" href="{{ url('trades/open') }}">
                                 Trades
                             </a>
                             <a class="dropdown-item" href="{{ url('activities') }}">
                                 Activities
+                            </a>
+                            <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
+                                Character Transfers
                             </a>
                         </div>
                     </li>
@@ -176,6 +176,9 @@
                             </a>
                             <a class="dropdown-item" href="{{ url('reports/new') }}">
                                 Submit Report
+                            </a>
+                            <a class="dropdown-item" href="{{ url('trades/create') }}">
+                                Submit Trade
                             </a>
                         </div>
                     </li>
