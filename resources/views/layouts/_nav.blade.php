@@ -111,7 +111,6 @@
                         <a class="dropdown-item" href="{{ url('raffles') }}">
                             Raffles
                         </a>
-                        <div class="dropdown-divider"></div>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
