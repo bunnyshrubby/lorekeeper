@@ -1,5 +1,5 @@
 <ul>
-    <li class="sidebar-header"><a href="{{ url('world/info') }}" class="card-link">World Expanded</a></li>
+    <li class="sidebar-header"><a href="{{ url('world/info') }}" class="card-link">World Lore</a></li>
     <li class="sidebar-section">
         <div class="sidebar-item"><a href="{{ url('world') }}">Encyclopedia</a></div>
     </li>
