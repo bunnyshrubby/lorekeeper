@@ -14,7 +14,6 @@
 
     @if($shops->count())
 <li class="sidebar-section">
-        <div class="sidebar-section-header">Shops</div>
         @foreach($shops as $categoryId=>$categoryshops)
             <div class="sidebar-section-header"> {!! isset($shopcategories[$categoryId]) ? ''.$shopcategories[$categoryId]->name.'' : 'Miscellaneous' !!}</div>
             @foreach($categoryshops->chunk(4) as $chunk)
