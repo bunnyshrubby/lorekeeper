@@ -15,10 +15,10 @@
                 <div class="sidebar-item"><a href="{{ $user->url.'/sublist/'.$sublist->key }}" class="{{ set_active('user/'.$user->name.'/sublist/'.$sublist->key) }}">{{ $sublist->name }}</a></div>
                 @endforeach
         @endif
+        <div class="sidebar-item"><a href="{{ $user->url.'/bank' }}" class="{{ set_active('user/'.$user->name.'/bank*') }}">Bank</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/myos' }}" class="{{ set_active('user/'.$user->name.'/myos*') }}">MYO Slots</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/inventory' }}" class="{{ set_active('user/'.$user->name.'/inventory*') }}">Inventory</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/'.__('awards.awardcase') }}" class="{{ set_active('user/'.$user->name.'/awardcase*') }}">{{ucfirst(ucfirst(__('awards.awardcase')))}}</a></div>
-        <div class="sidebar-item"><a href="{{ $user->url.'/bank' }}" class="{{ set_active('user/'.$user->name.'/bank*') }}">Bank</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/wishlists' }}" class="{{ set_active('user/'.$user->name.'/wishlists*') }}">User wishlists</a></div>
     </li>
     <li class="sidebar-section">
