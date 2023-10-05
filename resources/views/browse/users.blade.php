@@ -54,7 +54,6 @@
                     {!! $user->isOnline() !!}
                     {!! $user->displayName !!}
                 </div>
-                <div class="col-4 col-md-2 ">{!! $user->displayName !!}</div>
                 <div class="col-4 col-md-2">{!! $user->displayAlias !!}</div>
                 <div class="col-4 col-md-2">{!! $user->rank->displayName !!}</div>
                 <div class="col-4 col-md-2">{!! pretty_date($user->created_at, false) !!}</div>
