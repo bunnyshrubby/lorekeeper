@@ -38,16 +38,24 @@
                                 My MYO Slots
                             </a>
                             <a class="dropdown-item" href="{{ url('inventory') }}">
-                                Inventory
+                                My Inventory
                             </a>
                             <a class="dropdown-item" href="{{ url('bank') }}">
-                                Bank
+                                My Bank
                             </a>
+                            <a class="dropdown-item" href="{{ url('wishlists') }}">
+                                My Wishlists
+                            </a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('awardcase') }}">
                                 {{ ucfirst(__('awards.awards')) }}
                             </a>
-                            <a class="dropdown-item" href="{{ url('wishlists') }}">
-                                Wishlists
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ url('reports') }}">
+                                My Reports
+                            </a>
+                            <a class="dropdown-item" href="{{ url('reports/bug-reports') }}">
+                                My Bug Reports
                             </a>
                         </div>
                     </li>
@@ -56,14 +64,14 @@
                             Activity
                         </a>
                         <div class="dropdown-menu" aria-labelledby="queueDropdown">
+                            <a class="dropdown-item" href="{{ url('prompts/prompts') }}">
+                                Prompts
+                            </a>
                             <a class="dropdown-item" href="{{ url('submissions') }}">
                                 Prompt Submissions
                             </a>
                             <a class="dropdown-item" href="{{ url('claims') }}">
                                 Claims
-                            </a>
-                            <a class="dropdown-item" href="{{ url('reports') }}">
-                                My Reports
                             </a>
                             <a class="dropdown-item" href="{{ url('designs') }}">
                                 Design Approvals
@@ -74,6 +82,9 @@
                             </a>
                             <a class="dropdown-item" href="{{ url('trades/open') }}">
                                 Trades
+                            </a>
+                            <a class="dropdown-item" href="{{ url('activities') }}">
+                                Activities
                             </a>
                         </div>
                     </li>
@@ -93,14 +104,14 @@
                         <a class="dropdown-item" href="{{ url('myos') }}">
                             MYO Slot Masterlist
                         </a>
+                        <a class="dropdown-item" href="{{ url('shops') }}">
+                            Shops
+                        </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('raffles') }}">
                             Raffles
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ url('reports/bug-reports') }}">
-                            Bug Reports
-                        </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -114,15 +125,6 @@
                         </a>
                         <a class="dropdown-item" href="{{ url('world/info') }}">
                             World Expanded
-                        </a>
-                        <a class="dropdown-item" href="{{ url('prompts/prompts') }}">
-                            Prompts
-                        </a>
-                        <a class="dropdown-item" href="{{ url('shops') }}">
-                            Shops
-                        </a>
-                        <a class="dropdown-item" href="{{ url('activities') }}">
-                            Activities
                         </a>
                     </div>
                 </li>
