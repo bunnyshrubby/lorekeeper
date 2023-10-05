@@ -671,3 +671,13 @@ Route::group(['prefix' => 'world',  'namespace' => 'World', 'middleware' => 'pow
     Route::post('glossary/delete/{id}', 'GlossaryController@postDeleteTerm');
 
 });
+    # Emotes
+    Route::group(['prefix' => 'emotes', 'middleware' => 'power:manage_data'], function() {
+    Route::get('/', 'EmoteController@getEmoteIndex');
+    Route::get('create', 'EmoteController@getCreateEmote');
+    Route::post('create', 'EmoteController@postCreateEditEmote');
+    Route::get('edit/{id}', 'EmoteController@getEditEmote');
+    Route::post('edit/{id}', 'EmoteController@postCreateEditEmote');
+    Route::get('delete/{id}', 'EmoteController@getDeleteEmote');
+    Route::post('delete/{id}', 'EmoteController@postDeleteEmote');
+    });
