@@ -78,9 +78,9 @@
 
 <div class="card-deck mb-4 profile-assets" style="clear:both;">
     <div class="card profile-currencies profile-assets-card">
-        <div class="card-body text-center align-items-center d-flex justify-content-center">
+        <div class="card-body text-center">
             <h5 class="card-title">Bank</h5>
-            <div class="profile-assets-content">
+            <div class="profile-assets-content align-items-center">
                 @foreach($user->getCurrencies(false) as $currency)
                     <div>{!! $currency->display($currency->quantity) !!}</div>
                 @endforeach
