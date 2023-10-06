@@ -46,7 +46,7 @@ return [
     ],
 
     // Group Traits By Category - Uri
-    'traits_by_category' => 1,
+    'traits_by_category' => 0,
 
     // Scroll To Top - Uri
     'scroll_to_top' => 1, // 1 - On, 0 - off
