@@ -30,11 +30,6 @@
 @else
     {!! $pages->render() !!}
       <div class="row ml-md-2">
-        <div class="d-flex row flex-wrap col-12 pb-1 px-0 ubt-bottom">
-          <div class="col-12 col-md-5 font-weight-bold">Title</div>
-          <div class="col-3 col-md-3 font-weight-bold">Key</div>
-          <div class="col-6 col-md-3 font-weight-bold">Last Edited</div>
-        </div>
         @foreach($pages as $page)
         <div class="d-flex row flex-wrap col-12 mt-1 pt-2 px-0 ubt-top">
           <div class="col-12 col-md-5"><a href="{{ $page->url }}">{{ $page->title }}</a></div>
