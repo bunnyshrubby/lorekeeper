@@ -28,7 +28,7 @@
 
         <div class="card-body" id="{!! isset($shopcategories[$categoryId]) ? str_replace(' ', '', $shopcategories[$categoryId]->name) : 'miscellaneous' !!}">
             @foreach($categoryshops->chunk(4) as $chunk)
-                <div class="row mb-3">
+                <div class="row mb-3 justify-content-center">
                     @foreach($chunk as $shopId=>$shop)
                         <div class="col-md-3 col-6 mb-3 text-center">
                             <div class="shop-image">
