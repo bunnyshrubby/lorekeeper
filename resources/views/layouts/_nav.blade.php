@@ -128,7 +128,7 @@
                             Encyclopedia
                         </a>
                         <a class="dropdown-item" href="{{ url('world/info') }}">
-                            World Lore
+                            World
                         </a>
                     </div>
                 </li>

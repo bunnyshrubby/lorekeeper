@@ -9,7 +9,7 @@
     </li>
     @endif
     <li class="sidebar-section">
-        <div class="sidebar-item"><a href="{{ url('world/info') }}">World Lore</a></div>
+        <div class="sidebar-item"><a href="{{ url('world/info') }}">World</a></div>
     </li>
     <li class="sidebar-section">
         <div class="sidebar-section-header">Characters</div>
