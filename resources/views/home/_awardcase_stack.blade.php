@@ -109,7 +109,7 @@
                     </div>
                 </div>
             @endif
-            @if($award || $user->hasPower('edit_inventories'))
+            @if($award->allow_deletion || $user->hasPower('edit_inventories'))
             <h5 class="card-title">
                 <a class="h5 collapse-toggle collapsed" href="#deleteForm" data-toggle="collapse">@if($stack->first()->user_id != $user->id) [ADMIN] @endif Delete {{ ucfirst(__('awards.award')) }}</a></h3>
             </h5>
