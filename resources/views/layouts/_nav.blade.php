@@ -24,9 +24,11 @@
                         <a class="nav-link" href="{{ url('sales') }}">Sales</a>
                     @endif
                 </li>
+                <li class="nav-item">
                          <a class="dropdown-item" href="{{ url('world/info/guides') }}">
                                 Guides
                          </a>
+                </li>
                 @if(Auth::check())
                     <li class="nav-item dropdown">
                         <a id="inventoryDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
