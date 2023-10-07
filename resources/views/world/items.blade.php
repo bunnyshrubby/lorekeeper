@@ -62,11 +62,12 @@
         })->whereIn('id', App\Models\Shop\ShopStock::where('item_id', $item->id)->pluck('shop_id')->toArray())->orderBy('sort', 'DESC')->get();
         ?>
         @include('world._item_entry', ['imageUrl' => $item->imageUrl, 'name' => $item->displayName, 'description' => $item->parsed_description, 'idUrl' => $item->idUrl, 'shops' => $shops])
+           </div>
         </div>
+        </div>
+        @endforeach
     </div>
-@endforeach
+</div>
 {!! $items->render() !!}
-
-<div class="text-center mt-4 small text-muted">{{ $items->total() }} result{{ $items->total() == 1 ? '' : 's' }} found.</div>
-
+    <div class="text-center mt-4 small text-muted">{{ $items->total() }} result{{ $items->total() == 1 ? '' : 's' }} found.</div>
 @endsection
