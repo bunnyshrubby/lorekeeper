@@ -1,4 +1,4 @@
-@if($award)
+@if($award || $user->hasPower('edit_inventories'))
     {!! Form::open(['url' => 'admin/data/awards/delete/'.$award->id]) !!}
 
     <p>You are about to delete the {{__('awards.award')}} <strong>{{ $award->name }}</strong>. This is not reversible. If this {{__('awards.award')}} exists in at least one user or {{__('lorekeeper.character')}}'s possession, you will not be able to delete this {{__('awards.award')}}.</p>
