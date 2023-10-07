@@ -282,7 +282,8 @@ class CharacterManager extends Service
             $data['default_image'] = true;
             unset($data['use_cropper']);
             }
-
+        }
+        {
             $imageData = Arr::only($data, [
                 'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'use_cropper',
                 'x0', 'x1', 'y0', 'y1',
