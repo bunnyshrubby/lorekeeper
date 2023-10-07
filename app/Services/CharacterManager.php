@@ -271,7 +271,7 @@ class CharacterManager extends Service
                 break;
                 case 5:
                 $data['image'] = asset('images/MYO/Legendary_MYO.png');
-                $data['thumbnail'] = asset('images/MYO/cLegendary_MYO1.png');
+                $data['thumbnail'] = asset('images/MYO/Legendary_MYO1.png');
                 break;
                 case 6:
                 $data['image'] = asset('images/MYO/Restricted(Admin)_MYO.png');
