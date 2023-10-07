@@ -253,7 +253,45 @@ class CharacterManager extends Service
                     $data['default_image'] = true;
                     unset($data['use_cropper']);
                 }
+                // Use default images for MYO slots without an image provided
+                if(!isset($data['image']))
+                {
+                switch($data['rarity_id']){
+        
+                case null:
+                $data['image'] = asset('images/myo.png');
+                $data['thumbnail'] = asset('images/myo-th.png');
+                break;
+                case 1:
+                $data['image'] = asset('images/MYO/common_MYO.png');
+                $data['thumbnail'] = asset('images/MYO/common_MYO1.png');
+                break;
+                case 2:
+                $data['image'] = asset('images/MYO/uncommon_MYO.png');
+                $data['thumbnail'] = asset('images/MYO/uncommon_MYO1.png');
+                break;
+                case 3:
+                $data['image'] = asset('images/MYO/rare_MYO.png');
+                $data['thumbnail'] = asset('images/MYO/rare_MYO1.png');
+                break;
+                case 4:
+                $data['image'] = asset('images/MYO/ultrarare_MYO.png');
+                $data['thumbnail'] = asset('images/MYO/ultrarare_MYO1.png');
+                break;
+                case 5:
+                $data['image'] = asset('images/MYO/Legendary_MYO.png');
+                $data['thumbnail'] = asset('images/MYO/cLegendary_MYO1.png');
+                break;
+                case 6:
+                $data['image'] = asset('images/MYO/Restricted(Admin)_MYO.png');
+                $data['thumbnail'] = asset('images/MYO/Restricted(Admin)_MYO1.png');
+                break;
             }
+            $data['extension'] = 'png';
+            $data['default_image'] = true;
+            unset($data['use_cropper']);
+            }
+
             $imageData = Arr::only($data, [
                 'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'use_cropper',
                 'x0', 'x1', 'y0', 'y1',
@@ -300,6 +338,7 @@ class CharacterManager extends Service
                     if(!$user) throw new \Exception('One or more artists is invalid.');
                 }
             }
+        }
 
             // Attach artists/designers
             foreach($data['designer_id'] as $key => $id) {
