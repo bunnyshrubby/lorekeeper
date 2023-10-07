@@ -25,7 +25,7 @@
                     @endif
                 </li>
                 <li class="nav-item">
-                         <a class="dropdown-item" href="{{ url('world/info/guides') }}">
+                         <a class="nav-link" href="{{ url('world/info/guides') }}">
                                 Guides
                          </a>
                 </li>
