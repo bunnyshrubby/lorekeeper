@@ -130,6 +130,7 @@
                             {!! Form::button('Delete', ['class' => 'btn btn-danger', 'name' => 'action', 'value' => 'delete', 'type' => 'submit']) !!}
                         </div>
                     </div>
+                @endif
                 </li>
             </ul>
         </div>
