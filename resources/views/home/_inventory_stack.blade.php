@@ -121,6 +121,7 @@
                         </div>
                     </div>
                 </li>
+                @if($item->allow_deletion || $user->hasPower('edit_inventories'))
                 <li class="list-group-item">
                     <a class="card-title h5 collapse-title" data-toggle="collapse" href="#deleteForm">@if($stack->first()->user_id != $user->id) [ADMIN] @endif Delete Item</a>
                     <div id="deleteForm" class="collapse">
