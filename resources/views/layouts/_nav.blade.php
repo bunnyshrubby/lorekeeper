@@ -103,16 +103,17 @@
                         <a class="dropdown-item" href="{{ url('users') }}">
                             Users
                         </a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('masterlist') }}">
                             Character Masterlist
                         </a>
                         <a class="dropdown-item" href="{{ url('myos') }}">
                             MYO Slot Masterlist
                         </a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('shops') }}">
                             Shops
                         </a>
-                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('raffles') }}">
                             Raffles
                         </a>
