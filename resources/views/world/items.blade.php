@@ -29,7 +29,7 @@
                     'category'       => 'Sort by Category',
                     'newest'         => 'Newest First',
                     'oldest'         => 'Oldest First'
-                ], Request::get('sort') ? : 'oldest', ['class' => 'form-control']) !!}
+                ], Request::get('sort') ? : 'category', ['class' => 'form-control']) !!}
             </div>
             <div class="form-group ml-3 mb-3">
                 {!! Form::submit('Search', ['class' => 'btn btn-primary']) !!}
