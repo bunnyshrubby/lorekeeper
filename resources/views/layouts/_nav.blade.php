@@ -180,11 +180,11 @@
                             <a class="dropdown-item" href="{{ url('claims/new') }}">
                                 Submit Claim
                             </a>
-                            <a class="dropdown-item" href="{{ url('reports/new') }}">
-                                Submit Report
-                            </a>
                             <a class="dropdown-item" href="{{ url('trades/create') }}">
                                 Submit Trade
+                            </a>
+                            <a class="dropdown-item" href="{{ url('reports/new') }}">
+                                Submit Report
                             </a>
                         </div>
                     </li>
