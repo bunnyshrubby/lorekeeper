@@ -89,7 +89,6 @@
             <div class="text-right"><a href="{{ $user->url.'/bank' }}">View all...</a></div>
         </div>
     </div>
-
     <div class="card profile-inventory profile-assets-card">
         <div class="card-body text-center">
             <h5 class="card-title">Inventory</h5>
@@ -114,7 +113,7 @@
         </div>
     </div>
 </div>
-    <div class="card mb-3">
+    <div class="card mb-2">
         <div class="card-body text-center">
             <h5 class="card-title">{{ ucfirst(__('awards.awards')) }}</h5>
             <div class="card-body">
