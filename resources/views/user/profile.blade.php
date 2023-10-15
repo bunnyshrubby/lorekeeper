@@ -56,7 +56,9 @@
                 <div class="col-md-8 col-8">{!! $user->faction ? $user->faction->fullDisplayName : '-Deleted Faction-' !!}{!! $user->factionRank ? ' ('.$user->factionRank->name.')' : null !!}</div>
             </div>
         @endif
-	@if($user->is_deactivated)
+</div>
+
+@if($user->is_deactivated)
     	   <div class="alert alert-info text-center">
             <h1>{!! $user->displayName !!}</h1>
             <p>This account is currently deactivated, be it by staff or the user's own action. All information herein is hidden until the account is reactivated.</p>
@@ -66,7 +68,6 @@
 	@endif
      </div>
      @endif
-</div>
 
 @if(isset($user->profile->parsed_text))
     <div class="card mb-3" style="clear:both;">

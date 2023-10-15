@@ -23,12 +23,13 @@
             <div class="col-md-10 col-8">{!! $user->rank->displayName !!} {!! add_help($user->rank->parsed_description) !!}</div>
         </div>
         @if($user->birthdayDisplay && isset($user->birthday))
-            <div class="row col-md-6">
-                <div class="col-md-2 col-4"><h5>Birthday</h5></div>
-                <div class="col-md-10 col-8">{!! $user->birthdayDisplay !!}</div>
-            </div>
+         <div class="row col-md-6">
+            <div class="col-md-2 col-4"><h5>Birthday</h5></div>
+            <div class="col-md-10 col-8">{!! $user->birthdayDisplay !!}</div>
+        </div>
         @endif
     </div>
+</div>
 
 @if(isset($user->profile->parsed_text))
     <div class="card mb-3" style="clear:both;">
