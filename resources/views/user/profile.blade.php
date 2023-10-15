@@ -24,7 +24,7 @@
 </h1>
 
 
-<div class="mb-auto">
+<div class="mb-4">
     <div class="row">
         <div class="row col-md-6">
             <div class="col-md-4 col-4"><h5>Alias</h5></div>
@@ -77,7 +77,7 @@
     </div>
 @endif
 
-<div class="card-deck mb-4 profile-assets" style="clear:both;">
+<div class="card-deck mb-5 profile-assets" style="clear:both;">
     <div class="card profile-currencies profile-assets-card">
         <div class="card-body text-center">
             <h5 class="card-title">Bank</h5>
