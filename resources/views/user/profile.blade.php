@@ -24,7 +24,7 @@
 </h1>
 
 
-<div class="mb-4">
+<div class="mb-3">
     <div class="row">
         <div class="row col-md-6">
             <div class="col-md-4 col-4"><h5>Alias</h5></div>
