@@ -18,6 +18,9 @@
     {!! $user->isOnline() !!}
     <a href="{{ url('reports/new?url=') . $user->url }}"><i class="fas fa-exclamation-triangle fa-xs" data-toggle="tooltip" title="Click here to report this user." style="opacity: 50%; font-size:0.5em;"></i></a>
 
+    <div class="col-md-4 col-4"><h5>Joined</h5></div>
+            <div class="col-md-8 col-8">{!! format_date($user->created_at, false) !!} ({{ $user->created_at->diffForHumans() }})</div>
+            
     @if($user->settings->is_fto)
         <span class="badge badge-success float-right" data-toggle="tooltip" title="This user has not owned any characters from this world before.">FTO</span>
     @endif
@@ -31,12 +34,12 @@
             <div class="col-md-8 col-8">{!! $user->displayAlias !!}</div>
         </div>
         <div class="row col-md-6">
-            <div class="col-md-4 col-4"><h5>Rank</h5></div>
-            <div class="col-md-8 col-8">{!! $user->rank->displayName !!} {!! add_help($user->rank->parsed_description) !!}</div>
-        </div>
-        <div class="row col-md-6">
             <div class="col-md-4 col-4"><h5>Joined</h5></div>
             <div class="col-md-8 col-8">{!! format_date($user->created_at, false) !!} ({{ $user->created_at->diffForHumans() }})</div>
+        </div>
+        <div class="row col-md-6">
+            <div class="col-md-4 col-4"><h5>Rank</h5></div>
+            <div class="col-md-8 col-8">{!! $user->rank->displayName !!} {!! add_help($user->rank->parsed_description) !!}</div>
         </div>
         @if($user->birthdayDisplay && isset($user->birthday))
         <div class="row col-md-6">
