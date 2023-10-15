@@ -32,7 +32,7 @@
 </div>
 
 @if(isset($user->profile->parsed_text))
-    <div class="card mb-3" style="clear:both;">
+    <div class="card mb-4" style="clear:both;">
         <div class="card-body">
             {!! $user->profile->parsed_text !!}
         </div>
