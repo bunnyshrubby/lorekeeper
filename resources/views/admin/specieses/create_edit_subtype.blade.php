@@ -26,6 +26,22 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('Traits') !!}
+    {!! Form::select('feature_id[]', $features, null, ['class' => 'form-control mr-2 feature-select', 'placeholder' => 'Select Trait']) !!}
+    {!! Form::text('feature_data[]', null, ['class' => 'form-control mr-2', 'placeholder' => 'Extra Info (Optional)']) !!}
+    <a href="#" class="remove-feature btn btn-danger mb-2">×</a>
+</div>
+
+<div class="form-group">
+    {!! Form::label('Items') !!}
+    {!! Form::select('item_ids[]', $items, null, ['class' => 'form-control mr-2 item-select', 'placeholder' => 'Select Item']) !!}
+    {!! Form::text('quantities[]', 1, ['class' => 'form-control mr-2', 'placeholder' => 'Quantity']) !!}
+    <a href="#" class="remove-item btn btn-danger mb-2">×</a>
+</div>
+<? /*
+*/?>
+
+<div class="form-group">
     {!! Form::label('World Page Image (Optional)') !!} {!! add_help('This image is used only on the world information pages.') !!}
     <div>{!! Form::file('image') !!}</div>
     <div class="text-muted">Recommended size: 200px x 200px</div>
