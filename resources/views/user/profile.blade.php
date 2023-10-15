@@ -57,6 +57,7 @@
         </div>
         @endif
     </div>
+</div>
 
     @if($user->is_deactivated)
     	   <div class="alert alert-info text-center">
@@ -66,7 +67,6 @@
             <p class="mb-0">As you are staff, you can see the profile contents below and the sidebar contents.</p>
 	       </div>
 	    @endif
-</div>
     @endif
 
 @if(isset($user->profile->parsed_text))
@@ -113,7 +113,7 @@
         </div>
     </div>
 </div>
-    <div class="card mb-2">
+    <div class="card mb-3">
         <div class="card-body text-center">
             <h5 class="card-title">{{ ucfirst(__('awards.awards')) }}</h5>
             <div class="card-body">
