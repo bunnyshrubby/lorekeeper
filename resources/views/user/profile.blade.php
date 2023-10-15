@@ -112,9 +112,7 @@
             <div class="text-right"><a href="{{ $user->url.'/inventory' }}">View all...</a></div>
         </div>
     </div>
-</div>
-    <div class="card mb-3">
-        <div class="card-body text-center">
+    <div class="card-body text-center">
             <h5 class="card-title">{{ ucfirst(__('awards.awards')) }}</h5>
             <div class="card-body">
                 @if(count($awards))
@@ -135,7 +133,7 @@
             </div>
             <div class="text-right"><a href="{{ $user->url.'/'.__('awards.awardcase') }}">View all...</a></div>
         </div>
-    </div>
+</div>
 <h2>
     <a href="{{ $user->url.'/characters' }}">Characters</a>
     @if(isset($sublists) && $sublists->count() > 0)
