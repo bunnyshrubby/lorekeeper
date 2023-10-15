@@ -24,7 +24,7 @@
 </h1>
 
 
-<div class="mb-4">
+<div class="mb-5">
     <div class="row">
         <div class="row col-md-6">
             <div class="col-md-4 col-4"><h5>Alias</h5></div>
@@ -39,34 +39,26 @@
             <div class="col-md-8 col-8">{!! $user->rank->displayName !!} {!! add_help($user->rank->parsed_description) !!}</div>
         </div>
         @if($user->birthdayDisplay && isset($user->birthday))
-            <div class="row col-md-6">
-                <div class="col-md-4 col-4"><h5>Birthday</h5></div>
-                <div class="col-md-8 col-8">{!! $user->birthdayDisplay !!}</div>
-            </div>
+        <div class="row col-md-6">
+            <div class="col-md-4 col-4"><h5>Birthday</h5></div>
+            <div class="col-md-8 col-8">{!! $user->birthdayDisplay !!}</div>
+        </div>
         @endif
         @if($user_enabled && isset($user->home_id))
-            <div class="row col-md-6">
-                <div class="col-md-4 col-4"><h5>Home</h5></div>
-                <div class="col-md-8 col-8">{!! $user->home ? $user->home->fullDisplayName : '-Deleted Location-' !!}</div>
-            </div>
+         <div class="row col-md-6">
+             <div class="col-md-4 col-4"><h5>Home</h5></div>
+            <div class="col-md-8 col-8">{!! $user->home ? $user->home->fullDisplayName : '-Deleted Location-' !!}</div>
+        </div>
         @endif
         @if($user_factions_enabled && isset($user->faction_id))
-            <div class="row col-md-6">
-                <div class="col-md-4 col-4"><h5>Faction</h5></div>
-                <div class="col-md-8 col-8">{!! $user->faction ? $user->faction->fullDisplayName : '-Deleted Faction-' !!}{!! $user->factionRank ? ' ('.$user->factionRank->name.')' : null !!}</div>
-            </div>
+        <div class="row col-md-6">
+            <div class="col-md-4 col-4"><h5>Faction</h5></div>
+            <div class="col-md-8 col-8">{!! $user->faction ? $user->faction->fullDisplayName : '-Deleted Faction-' !!}{!! $user->factionRank ? ' ('.$user->factionRank->name.')' : null !!}</div>
+        </div>
         @endif
     </div>
 
-    @if(isset($user->profile->parsed_text))
-    <div class="card mb-3" style="clear:both;">
-        <div class="card-body">
-            {!! $user->profile->parsed_text !!}
-        </div>
-    </div>
-@endif
-
-@if($user->is_deactivated)
+    @if($user->is_deactivated)
     	   <div class="alert alert-info text-center">
             <h1>{!! $user->displayName !!}</h1>
             <p>This account is currently deactivated, be it by staff or the user's own action. All information herein is hidden until the account is reactivated.</p>
@@ -75,7 +67,15 @@
 	       </div>
 	    @endif
 </div>
- @endif
+    @endif
+
+@if(isset($user->profile->parsed_text))
+    <div class="card mb-3" style="clear:both;">
+        <div class="card-body">
+            {!! $user->profile->parsed_text !!}
+        </div>
+    </div>
+@endif
 
 <div class="card-deck mb-4 profile-assets" style="clear:both;">
     <div class="card profile-currencies profile-assets-card">
