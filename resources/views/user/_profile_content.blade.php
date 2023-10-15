@@ -29,9 +29,7 @@
             </div>
         @endif
     </div>
-</div>
 
-<div class="card-deck mb-4 profile-assets" style="clear:both;">
 @if(isset($user->profile->parsed_text))
     <div class="card mb-3" style="clear:both;">
         <div class="card-body">
@@ -40,6 +38,7 @@
     </div>
 @endif
 
+<div class="card-deck mb-4 profile-assets" style="clear:both;">
     <div class="card profile-currencies profile-assets-card">
         <div class="card-body text-center">
             <h5 class="card-title">Bank</h5>
