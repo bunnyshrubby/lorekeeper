@@ -26,6 +26,7 @@
         <div class="sidebar-section-header">Nature</div>
         <div class="sidebar-item"><a href="{{ url('world/faunas') }}" class="{{ set_active('world/faunas*') }}">All Fauna</a></div>
         <div class="sidebar-item"><a href="{{ url('world/floras') }}" class="{{ set_active('world/floras*') }}">All Flora</a></div>
+        <div class="sidebar-item"><a href="{{ url('world/concepts') }}" class="{{ set_active('world/concepts*') }}">All Concepts</a></div>
         <div class="sidebar-item"><a href="{{ url('world/fauna-categories') }}" class="{{ set_active('world/fauna-categories*') }}">Fauna Types</a></div>
         <div class="sidebar-item"><a href="{{ url('world/flora-categories') }}" class="{{ set_active('world/flora-categories*') }}">Flora Types</a></div>
         <div class="sidebar-item"><a href="{{ url('world/concept-categories') }}" class="{{ set_active('world/concept-categories*') }}">Concept Types</a></div>
