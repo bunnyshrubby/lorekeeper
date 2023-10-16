@@ -305,6 +305,20 @@ return [
         'message'   => '<a href="{user_url}">{user_name}\'s</a> account has been deactivated by <a href="{staff_url}">{staff_name}</a>.',
         'url'       => ''
     ],
+    
+    // SUBMISSION_CANCELLED
+    108 => [
+        'name' => 'Submission Cancelled',
+        'message' => 'Your submission (#{submission_id}) was cancelled and sent back to drafts by <a href="{staff_url}">{staff_name}</a>. (<a href="{url}">View Submission</a>)',
+        'url' => 'submissions/view/{submission_id}'
+    ],
+
+    // CLAIM_CANCELLED
+    109 => [
+        'name' => 'Claim Cancelled',
+        'message' => 'Your claim (#{submission_id}) was cancelled and sent back to drafts by <a href="{staff_url}">{staff_name}</a>. (<a href="{url}">View Claim</a>)',
+        'url' => 'claims/view/{submission_id}'
+    ],
 
     // REPORT_ASSIGNED
     220 => [
