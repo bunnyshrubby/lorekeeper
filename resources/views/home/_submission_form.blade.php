@@ -77,7 +77,7 @@
             @endif
             <div id="characters" class="mb-3">
                 @foreach($submission->characters as $character)
-                    @include('widgets._character_select_entry', ['characterCurrencies' => $characterCurrencies, 'awards' => $awards, 'items' => $items, 'tables' => [], 'showTables' => false, 'character' => $character, 'expanded_rewards' => $expanded_rewards])
+                    @include('widgets._character_select_entry', ['characterCurrencies' => $characterCurrencies, 'items' => $items, 'tables' => [], 'showTables' => false, 'character' => $character, 'expanded_rewards' => $expanded_rewards])
                 @endforeach
             </div>
         </div>
