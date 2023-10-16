@@ -116,7 +116,7 @@ class BrowseController extends Controller
     public function getTeamIndex()
     {
         $staffRanks = RankPower::distinct()->get(['rank_id']);
-        $staffRanks->push(Settings::get('admin_user'));
+        $staffRanks->push(Settings::get('admin_user'), 3, 5);
         $staff = User::whereIn('rank_id', $staffRanks)->get()->groupBy('rank_id');
         $ranks = Rank::orderBy('id')->get();
         return view('browse.team_index', [
