@@ -9,6 +9,7 @@ use Auth;
 use Settings;
 use App\Models\User\User;
 use App\Models\Rank\Rank;
+use App\Models\Rank\RankPower;
 
 use App\Models\Character\Character;
 use App\Models\Character\CharacterImage;
@@ -104,6 +105,23 @@ class BrowseController extends Controller
             'privacy' => $privacy,
             'key' => $key,
             'users' => $canView ? User::where('is_deactivated', 1)->orderBy('users.name')->paginate(30)->appends($request->query()) : null,
+        ]);
+    }
+
+    /**
+     * Shows the team index page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getTeamIndex()
+    {
+        $staffRanks = RankPower::distinct()->get(['rank_id']);
+        $staffRanks->push(Settings::get('admin_user'));
+        $staff = User::whereIn('rank_id', $staffRanks)->get()->groupBy('rank_id');
+        $ranks = Rank::orderBy('id')->get();
+        return view('browse.team_index', [
+            'staff' => $staff,
+            'ranks' => $ranks
         ]);
     }
 

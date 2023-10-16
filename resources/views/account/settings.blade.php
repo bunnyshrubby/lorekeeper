@@ -99,6 +99,10 @@
     {!! Form::close() !!}
 </div>
 
+@if(Auth::user()->isStaff)
+    @include('widgets._staff_profile_form', ['user' => Auth::user(), 'adminView' => 0])
+@endif
+
 <div class="card p-3 mb-2">
     <h3>Theme</h3>
     <p>Change the way the site looks for you! </p>
@@ -190,4 +194,7 @@ $( document ).ready(function() {
 });
 
 </script>
+    @if(Auth::user()->isStaff)
+        @include('js._website_links_js')
+    @endif
 @endsection

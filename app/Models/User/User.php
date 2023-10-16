@@ -148,6 +148,13 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo('App\Models\User\User', 'deactivater_id');
     }
+    /**   
+     * Get user staff profile data.
+     */
+    public function staffProfile()
+    {
+        return $this->hasOne('App\Models\User\StaffProfile');
+    }
 
     /**
      * Get the user's aliases.
