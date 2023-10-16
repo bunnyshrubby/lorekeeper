@@ -141,11 +141,12 @@ class SubmissionController extends Controller
             'items'                 => Item::orderBy('name')->released()->pluck('name', 'id'),
             'character_items'       => Item::whereIn('item_category_id', ItemCategory::where('is_character_owned',1)->pluck('id')->toArray() )->orderBy('name')->released()->pluck('name', 'id'),
             'currencies'            => Currency::where('is_user_owned', 1)->orderBy('name')->pluck('name', 'id'),
+            'awards'                => Award::orderBy('name')->pluck('name', 'id'),
             'inventory'             => $inventory,
             'page'                  => 'submission',
             'expanded_rewards'      => Config::get('lorekeeper.extensions.character_reward_expansion.expanded'),
             'selectedInventory'     => isset($submission->data['user']) ? parseAssetData($submission->data['user']) : null,
-            'count' => Submission::where('prompt_id', $submission->prompt_id)->where('status', 'Approved')->where('user_id', $submission->user_id)->count()
+            'count'                 => Submission::where('prompt_id', $submission->prompt_id)->where('status', 'Approved')->where('user_id', $submission->user_id)->count()
         ]));
     }
 
