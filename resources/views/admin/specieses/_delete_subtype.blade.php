@@ -5,7 +5,7 @@
     <p>Are you sure you want to delete <strong>{{ $subtype->name }}</strong>?</p>
 
     <div class="text-right">
-        {!! Form::submit('Delete '.ucfirst(__('lorekeeper.subtype')), ['class' => 'btn btn-danger']) !!}
+        {!! Form::submit('Delete {{ucfirst(__('lorekeeper.subtype'))}}, ['class' => 'btn btn-danger']) !!}
     </div>
 
     {!! Form::close() !!}
