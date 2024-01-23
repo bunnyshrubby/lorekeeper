@@ -81,7 +81,7 @@
 $( document ).ready(function() {
     $('.delete-subtype-button').on('click', function(e) {
         e.preventDefault();
-        loadModal("{{ url('admin/data/subtypes/delete') }}/{{ $subtype->id }}", 'Delete '.ucfirst(__('lorekeeper.subtype')));
+        loadModal("{{ url('admin/data/subtypes/delete') }}/{{ $subtype->id }}", 'Delete {{ucfirst(__('lorekeeper.subtype'))}}');
     });
 });
 
