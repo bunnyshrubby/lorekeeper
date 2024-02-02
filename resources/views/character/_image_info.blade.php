@@ -42,7 +42,7 @@
                     </div>
                 @endif
                 @if($image->subtype_id_2) 
-                        <div class="col-lg-8 col-md-6 col-8">{!! $image->subtype_id_2 ? $image->subtypeTwo->displayName : 'None' !!}</div>
+                        <div class="col-lg-8 col-md-6 col-7">{!! $image->subtype_id_2 ? $image->subtypeTwo->displayName : 'None' !!}</div>
                 @endif
                 @if($image->character->homeSetting)
                     <div class="row">
