@@ -41,12 +41,14 @@
                         <div class="col-lg-8 col-md-6 col-8">{!! $image->subtype_id ? $image->subtype->displayName : 'None' !!} @if($image->subtype_id_2) - {!! $image->subtype_id_2 ? $image->subtypeTwo->displayName : 'None' !!} @endif</div>
                     </div>
                 @endif
+                <?/*
                 @if($image->subtype_id_2)
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-4"><h5>Subtype</h5></div>
                         <div class="col-lg-8 col-md-6 col-8">{!! $image->subtype_id_2 ? $image->subtypeTwo->displayName : 'None' !!}</div>
                     </div>
-                @endif
+                @endif         
+                */?>
                 @if($image->character->homeSetting)
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-4"><h5>Home</h5></div>

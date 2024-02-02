@@ -24,7 +24,7 @@
     {!! Form::label(ucfirst(__('lorekeeper.species'))) !!}
     {!! Form::select('species_id', $specieses, $subtype->species_id, ['class' => 'form-control']) !!}
 </div>
-<? /*
+<?/*
 <div class="form-group">
     {!! Form::label('Traits') !!}
     {!! Form::select('feature_id[]', $features, null, ['class' => 'form-control mr-2 feature-select', 'placeholder' => 'Select Trait']) !!}
@@ -38,7 +38,6 @@
     {!! Form::text('quantities[]', 1, ['class' => 'form-control mr-2', 'placeholder' => 'Quantity']) !!}
     <a href="#" class="remove-item btn btn-danger mb-2">×</a>
 </div>
-<? /*
 */?>
 
 <div class="form-group">
