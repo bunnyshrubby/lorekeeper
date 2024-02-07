@@ -108,7 +108,6 @@ main > .row {
 .site-header-image {
     /*background-color: #eee;*/
     background-repeat: no-repeat;
-    background-attachment: fixed;
     min-height: 200px;
 }
 
