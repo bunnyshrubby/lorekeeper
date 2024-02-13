@@ -16,6 +16,10 @@
     font-family: Grenze;
     src: url(../webfonts/Grenze-Medium.ttf)
 }
+@font-face {
+    font-family: GrenzeSB;
+    src: url(../webfonts/Grenze-SemiBold.ttf)
+}
 
 /**************************************************************************************************
 
@@ -117,7 +121,7 @@ main > .row {
 
 .navbar .navbar-brand, .navbar .nav-item {
     text-transform: uppercase;
-    font-family: Grenze, serif;
+    font-family: GrenzeSB, serif;
 }
 
 .navbar .row { width: 100%; }
