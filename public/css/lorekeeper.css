@@ -114,6 +114,7 @@ main > .row {
 .navbar .navbar-brand, .navbar .nav-item {
     text-transform: uppercase;
     font-family: Roboto Condensed, serif;
+    font-weight: bold;
 }
 
 .navbar .row { width: 100%; }
