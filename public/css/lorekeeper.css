@@ -118,6 +118,7 @@ main > .row {
     background-repeat: no-repeat;
     min-height: 200px;
     background-size: cover;
+    background-position: center;
 }
 
 .navbar .navbar-brand, .navbar .nav-item {
