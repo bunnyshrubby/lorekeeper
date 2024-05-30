@@ -117,6 +117,7 @@ main > .row {
     /*background-color: #eee;*/
     background-repeat: no-repeat;
     min-height: 200px;
+    background-size: cover;
 }
 
 .navbar .navbar-brand, .navbar .nav-item {
