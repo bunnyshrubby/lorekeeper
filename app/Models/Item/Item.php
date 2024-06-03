@@ -123,7 +123,7 @@ class Item extends Model
     public function scopeSortCategory($query)
     {
         if (ItemCategory::all()->count()) {
-            return $query->orderBy(ItemCategory::select('sort')->whereColumn('items.item_category_id', 'item_categories.id'), 'DESC' )->orderBy('id', 'DESC');
+            return $query->orderBy(ItemCategory::select('sort')->whereColumn('items.item_category_id', 'item_categories.id'), 'DESC' )->orderBy('id', 'ASC');
         }
 
         return $query;
