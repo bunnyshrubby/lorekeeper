@@ -40,10 +40,6 @@ return [
                 'url' => 'admin/news'
             ],
             [
-                'name' => 'Sales',
-                'url' => 'admin/sales'
-            ],
-            [
                 'name' => 'Page Sections',
                 'url' => 'admin/page-sections'
             ],
@@ -56,9 +52,13 @@ return [
                 'url' => 'admin/pages'
             ],
             [
+                'name' => 'Sales',
+                'url' => 'admin/sales'
+            ],
+            [
                 'name' => 'Emotes',
                 'url' => 'admin/emotes'
-            ]
+            ],
         ]
     ],
     'Users' => [
@@ -145,8 +145,32 @@ return [
         'power' => 'edit_data',
         'links' => [
             [
-                'name' => 'Galleries',
-                'url' => 'admin/data/galleries'
+                'name' => 'Species',
+                'url' => 'admin/data/species'
+            ],
+            [
+                'name' => 'Subtypes',
+                'url' => 'admin/data/subtypes'
+            ],
+            [
+                'name' => 'Traits',
+                'url' => 'admin/data/traits'
+            ],
+            [
+                'name' => 'Loot Tables',
+                'url' => 'admin/data/loot-tables'
+            ],
+            [
+                'name' => 'Shops',
+                'url' => 'admin/data/shops'
+            ],
+            [
+                'name' => 'Items',
+                'url' => 'admin/data/items'
+            ],
+            [
+                'name' => 'Currencies',
+                'url' => 'admin/data/currencies'
             ],
             [
                 'name' => 'Award Categories',
@@ -165,44 +189,20 @@ return [
                 'url' => 'admin/data/sublists'
             ],
             [
-                'name' => 'Rarities',
-                'url' => 'admin/data/rarities'
-            ],
-            [
-                'name' => 'Species',
-                'url' => 'admin/data/species'
-            ],
-            [
-                'name' => 'Subtypes',
-                'url' => 'admin/data/subtypes'
-            ],
-            [
-                'name' => 'Traits',
-                'url' => 'admin/data/traits'
-            ],
-            [
-                'name' => 'Shops',
-                'url' => 'admin/data/shops'
-            ],
-            [
                 'name' => 'Activities',
                 'url' => 'admin/data/activities'
             ],
             [
-                'name' => 'Currencies',
-                'url' => 'admin/data/currencies'
+                'name' => 'Galleries',
+                'url' => 'admin/data/galleries'
             ],
             [
                 'name' => 'Prompts',
                 'url' => 'admin/data/prompts'
             ],
             [
-                'name' => 'Loot Tables',
-                'url' => 'admin/data/loot-tables'
-            ],
-            [
-                'name' => 'Items',
-                'url' => 'admin/data/items'
+                'name' => 'Rarities',
+                'url' => 'admin/data/rarities'
             ],
             [
                 'name' => 'Advent Calendars',
