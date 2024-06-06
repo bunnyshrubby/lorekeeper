@@ -239,7 +239,7 @@ return [
     'show_terms_popup' => 1,
     'terms_popup' => [
         "title" => "Wait a second!", 
-        "text" => "To partake in our species you should be at least 18+ and be okay with visuals of guns and fantasy violence. By proceeding, you agree that you are at least 18+ years old and okay with the themes presented in our species.", 
+        "text" => "To partake in our species, you should be at least 18+ and be okay with visuals of guns and fantasy violence. By proceeding, you agree that you are at least 18+ years old and okay with the themes presented in our species.", 
         "button" => "Accept"
     ],
 ];
