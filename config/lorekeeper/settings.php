@@ -239,7 +239,7 @@ return [
     'show_terms_popup' => 1,
     'terms_popup' => [
         "title" => "Wait a second!", 
-        "text" => "This is a popup to remind you that this site is not for everybody. By proceeding, you agree to follow the site terms and let us know that you read this message.", 
+        "text" => "To partake in our species you should be at least 18+ and be okay with visuals of guns and fantasy violence. By proceeding, you agree that you are at least 18+ years old and okay with the themes presented in our species.", 
         "button" => "Accept"
     ],
 ];
