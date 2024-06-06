@@ -12,6 +12,15 @@ return [
     //     'version' => '1.0.0',
     // ],
 
+    'terms_popup' => [
+        'key' => 'terms_popup',
+        'wiki_key' => 'Terms Popup',
+        'creators' => json_encode([
+            'Cylunny' => 'https://toyhou.se/cylunny',
+        ]),
+        'version' => '1.0.0', 
+    ],
+
     'second_subtype' => [
         'key' => 'second_subtype',
         'wiki_key' => 'Second_Subtype',

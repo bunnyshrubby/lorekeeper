@@ -237,3 +237,10 @@ Route::group(['prefix' => 'world', 'namespace' => 'WorldExpansion'], function() 
     Route::get('concept-categories/{id}', 'ConceptController@getConceptCategory');
 });
 
+/**************************************************************************************************
+    Terms accept
+**************************************************************************************************/
+
+Route::group(['prefix' => 'terms'], function() {
+    Route::get('/accept', 'TermsController@acceptTerms');
+});
