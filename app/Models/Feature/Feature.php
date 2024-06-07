@@ -138,8 +138,11 @@ class Feature extends Model
      */
     public function scopeSortSpecies($query)
     {
-        $ids = Species::orderBy('sort', 'DESC')->pluck('id')->toArray();
-        return count($ids) ? $query->orderByRaw(DB::raw('FIELD(species_id, '.implode(',', $ids).')')) : $query;
+        if (Species::all()->count()) {
+            return $query->orderBy(Species::select('sort')->whereColumn('species_id', 'species.id'), 'DESC' )->orderBy('rarity_id', 'ASC')->orderBy('id', 'ASC');
+        }
+
+        return $query;
     }
 
     /**
@@ -151,8 +154,11 @@ class Feature extends Model
      */
     public function scopeSortRarity($query, $reverse = false)
     {
-        $ids = Rarity::orderBy('sort', $reverse ? 'ASC' : 'DESC')->pluck('id')->toArray();
-        return count($ids) ? $query->orderByRaw(DB::raw('FIELD(rarity_id, '.implode(',', $ids).')')) : $query;
+        if (Rarity::all()->count()) {
+            return $query->orderBy(Rarity::select('sort')->whereColumn('rarity_id', 'rarity.id'), 'DESC' )->orderBy('id', 'ASC');
+        }
+
+        return $query;
     }
 
     /**
