@@ -70,15 +70,21 @@
                             Activity
                         </a>
                         <div class="dropdown-menu" aria-labelledby="queueDropdown">
+                            <a class="dropdown-item" href="{{ url('activities') }}">
+                                Activities
+                            </a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('prompts/prompts') }}">
                                 Prompts
                             </a>
+                            @if(Auth::check())
                             <a class="dropdown-item" href="{{ url('submissions') }}">
                                 Prompt Submissions
                             </a>
                             <a class="dropdown-item" href="{{ url('submissions?type=draft') }}">
                                 Submission Drafts
                             </a>
+                            @endif
                             <a class="dropdown-item" href="{{ url('claims') }}">
                                 Claims
                             </a>
@@ -94,9 +100,6 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('trades/open') }}">
                                 Trades
-                            </a>
-                            <a class="dropdown-item" href="{{ url('activities') }}">
-                                Activities
                             </a>
                             <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
                                 Character Transfers
