@@ -88,21 +88,24 @@
                             <a class="dropdown-item" href="{{ url('claims') }}">
                                 Claims
                             </a>
+                            @if(Auth::check())
                             <a class="dropdown-item" href="{{ url('claims?type=draft') }}">
                                 Claim Drafts
                             </a>
-                            <a class="dropdown-item" href="{{ url('reports') }}">
-                                Reports
-                            </a>
+                            @endif
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('designs') }}">
                                 Design Approvals
                             </a>
-                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('trades/open') }}">
                                 Trades
                             </a>
                             <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
                                 Character Transfers
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ url('reports') }}">
+                                Reports
                             </a>
                         </div>
                     </li>
