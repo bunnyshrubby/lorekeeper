@@ -139,7 +139,7 @@ class Feature extends Model
     public function scopeSortSpecies($query)
     {
         if (Species::all()->count()) {
-            return $query->orderBy(Species::select('sort')->whereColumn('species_id', 'species.id'), 'DESC' )->orderBy('rarity_id', 'ASC')->orderBy('id', 'ASC');
+            return $query->orderBy(Species::select('sort')->whereColumn('species_id'), 'DESC' )->orderBy('rarity_id', 'ASC')->orderBy('id', 'ASC');
         }
 
         return $query;
@@ -155,7 +155,7 @@ class Feature extends Model
     public function scopeSortRarity($query, $reverse = false)
     {
         if (Rarity::all()->count()) {
-            return $query->orderBy(Rarity::select('sort')->whereColumn('rarity_id', 'rarity.id'), 'DESC' )->orderBy('id', 'ASC');
+            return $query->orderBy(Rarity::select('sort')->whereColumn('rarity_id'), 'DESC' )->orderBy('id', 'ASC');
         }
 
         return $query;
