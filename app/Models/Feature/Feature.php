@@ -123,7 +123,7 @@ class Feature extends Model
     public function scopeSortCategory($query)
     {
         if (FeatureCategory::all()->count()) {
-            return $query->orderBy(FeatureCategory::select('sort')->whereColumn('features.feature_category_id', 'feature_categories.id'), 'DESC');
+            return $query->orderBy(FeatureCategory::select('sort')->whereColumn('features.feature_category_id', 'feature_categories.id'), 'DESC' )->orderBy('id', 'ASC');
         }
 
         return $query;
