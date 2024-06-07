@@ -57,6 +57,9 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('reports') }}">
+                                Reports
+                            </a>
+                            <a class="dropdown-item" href="{{ url('reports') }}">
                                 My Reports
                             </a>
                             <a class="dropdown-item" href="{{ url('reports/bug-reports') }}">
@@ -102,10 +105,6 @@
                             </a>
                             <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
                                 Character Transfers
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ url('reports') }}">
-                                Reports
                             </a>
                         </div>
                     </li>
