@@ -64,6 +64,7 @@
                             </a>
                         </div>
                     </li>
+                    @endif
                     <li class="nav-item dropdown">
                         <a id="queueDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Activity
@@ -102,7 +103,7 @@
                             </a>
                         </div>
                     </li>
-                @endif
+
                 <li class="nav-item dropdown">
                     <a id="browseDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         Browse
