@@ -57,7 +57,7 @@ class ShopController extends Controller
     {
         $categories = ItemCategory::orderBy('sort', 'DESC')->get();
         $shopcategories = ShopCategory::orderBy('sort', 'DESC')->get();
-        $shops = count($shopcategories) ? Shop::where('is_active', 1)->orderByRaw('FIELD(shop_category_id,'.implode(',', $shopcategories->pluck('id')->toArray()).')')->orderBy('name')->get()->groupBy('shop_category_id') : Shop::where('is_active', 1)->orderBy('id')->get()->groupBy('shop_category_id');
+        $shops = count($shopcategories) ? Shop::where('is_active', 1)->orderByRaw('FIELD(shop_category_id,'.implode(',', $shopcategories->pluck('id')->toArray()).')')->orderBy('id')->get()->groupBy('shop_category_id') : Shop::where('is_active', 1)->orderBy('name')->get()->groupBy('shop_category_id');
         $shop = Shop::where('id', $id)->where('is_active', 1)->first();
 
         if(!$shop) abort(404);
