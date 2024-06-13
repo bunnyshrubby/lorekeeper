@@ -85,7 +85,7 @@ class Shop extends Model
      */
     public function category()
     {
-        return $this->belongsTo('App\Models\Shop\ShopCategory', 'shop_category_id');
+        return $this->belongsTo('App\Models\Shop\ShopCategory', 'shop_category_id')->orderBy('id', 'ASC');
     }
 
     /**********************************************************************************************
