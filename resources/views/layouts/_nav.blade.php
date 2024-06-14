@@ -73,10 +73,6 @@
                             Activity
                         </a>
                         <div class="dropdown-menu" aria-labelledby="queueDropdown">
-                            <a class="dropdown-item" href="{{ url('activities') }}">
-                                Activities
-                            </a>
-                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('prompts/prompts') }}">
                                 Prompts
                             </a>
@@ -125,13 +121,13 @@
                         <a class="dropdown-item" href="{{ url('myos') }}">
                             MYO Slot Masterlist
                         </a>
-                        <a class="dropdown-item" href="{{ url('shops') }}">
-                            Shops
-                        </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('raffles') }}">
                             Raffles
                         </a>
+                        <a class="dropdown-item" href="{{ url('activities') }}">
+                                Activities
+                            </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
