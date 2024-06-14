@@ -73,6 +73,10 @@
                             Activity
                         </a>
                         <div class="dropdown-menu" aria-labelledby="queueDropdown">
+                            <a class="dropdown-item" href="{{ url('trades/open') }}">
+                                Trades
+                            </a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('prompts/prompts') }}">
                                 Prompts
                             </a>
@@ -95,9 +99,6 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('designs') }}">
                                 Design Approvals
-                            </a>
-                            <a class="dropdown-item" href="{{ url('trades/open') }}">
-                                Trades
                             </a>
                             <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
                                 Character Transfers
