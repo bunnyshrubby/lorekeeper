@@ -153,9 +153,6 @@
                         <a class="dropdown-item" href="{{ url('world/items') }}">
                             Items
                         </a>
-                        <a class="dropdown-item" href="{{ url('world/awards') }}">
-                            Awards
-                        </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('shops') }}">
                             Shops
