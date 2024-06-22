@@ -113,10 +113,14 @@ class AddSiteSettings extends Command
 
         $this->addSiteSetting('deactivated_key', 0, 'Optional key to view the deactivated list. Enter "0" to not require one.');
 
-        $this->line("\nSite settings up to date!");
+        $this->addSiteSetting('trait_remover_needed', 0, '0: No item needed to remove traits via design update. 1: Trait Remover item needed to remove traits via design update.');
+        
+        $this->addSiteSetting('trait_per_item', 0, '0: One item unlocks x traits for selection, and x of them can be chosen. 1: One item unlocks x traits for selection, only one of them can be chosen.');
 
         $this->addSiteSetting('coupon_settings', 0, '0: Percentage is taken from total (e.g 20% from 2 items costing a total of 100 = 80), 1: Percentage is taken from item (e.g 20% from 2 items costing a total of 100 = 90)');
         
         $this->addSiteSetting('limited_stock_coupon_settings', 0, '0: Does not allow coupons to be used on limited stock items, 1: Allows coupons to be used on limited stock items');
+        
+        $this->line("\nSite settings up to date!");
     }
 }
