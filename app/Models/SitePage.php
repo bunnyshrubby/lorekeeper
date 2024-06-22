@@ -34,7 +34,7 @@ class SitePage extends Model
      * @var string
      */
     public $timestamps = true;
-    
+
     /**
      * Validation rules for creation.
      *
@@ -46,7 +46,7 @@ class SitePage extends Model
         'title' => 'required|between:3,100',
         'text' => 'nullable',
     ];
-    
+
     /**
      * Validation rules for updating.
      *
@@ -92,6 +92,26 @@ class SitePage extends Model
         return $this->belongsTo('App\Models\SitePageCategory', 'page_category_id');
     }
 
+     /**
+     * Gets the admin edit URL.
+     *
+     * @return string
+     */
+    public function getAdminUrlAttribute()
+    {
+        return url('admin/pages/edit/'.$this->id);
+    }
+
+    /**
+     * Gets the power required to edit this model.
+     *
+     * @return string
+     */
+    public function getAdminPowerAttribute()
+    {
+        return 'edit_pages';
+    }
+        
     /**********************************************************************************************
     
         SCOPES

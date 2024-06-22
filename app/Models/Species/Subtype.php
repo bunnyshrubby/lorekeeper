@@ -158,4 +158,24 @@ class Subtype extends Model
     {
         return url('masterlist?'.__('lorekeeper.subtype').'_id='.$this->id);
     }
+
+    /**
+     * Gets the admin edit URL.
+     *
+     * @return string
+     */
+    public function getAdminUrlAttribute()
+    {
+        return url('admin/data/subtypes/edit/'.$this->id);
+    }
+
+    /**
+     * Gets the power required to edit this model.
+     *
+     * @return string
+     */
+    public function getAdminPowerAttribute()
+    {
+        return 'edit_data';
+    }
 }

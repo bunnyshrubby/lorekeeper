@@ -8,6 +8,7 @@
 @else
 {!! breadcrumbs([$page->title => $page->url]) !!}
 @endif
+<x-admin-edit title="Page" :object="$page"/>
 <h1>{{ $page->title }}</h1>
 
 <div class="mb-4">

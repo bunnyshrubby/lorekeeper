@@ -147,4 +147,24 @@ class Sales extends Model
     {
         return url('sales/'.$this->slug);
     }
+
+    /**
+     * Gets the admin edit URL.
+     *
+     * @return string
+     */
+    public function getAdminUrlAttribute()
+    {
+        return url('admin/sales/edit/'.$this->id);
+    }
+
+    /**
+     * Gets the power required to edit this model.
+     *
+     * @return string
+     */
+    public function getAdminPowerAttribute()
+    {
+        return 'edit_pages';
+    }
 }
