@@ -78,10 +78,9 @@
                 @if($request->features)
                     @foreach($request->features as $feature)
                         <div class="mb-2 d-flex">
-                            <!--- Users no longer assign traits, this is done via addon trait item! Hence, turn this readonly --->
-                            {!! Form::select('feature_id[]', $features, $feature->feature_id, ['class' => 'form-control mr-2 feature-select', 'style' => 'pointer-events: none;']) !!}
-                            {!! Form::text('feature_data[]', $feature->data, ['class' => 'form-control mr-2']) !!}
-                            @if($request->canRemoveTrait() || Settings::get('trait_remover_needed') == 0 )<a href="#" class="remove-feature btn btn-danger mb-2">×</a>@endif
+                        {!! Form::select('feature_id[]', $features, $feature->feature_id, ['class' => 'form-control mr-2 feature-select', 'placeholder' => 'Select Trait']) !!}
+                            {!! Form::text('feature_data[]', $feature->data, ['class' => 'form-control mr-2', 'placeholder' => 'Extra Info (Optional)']) !!}
+                            <a href="#" class="remove-feature btn btn-danger mb-2">×</a>
                         </div>
                     @endforeach
                 @endif
