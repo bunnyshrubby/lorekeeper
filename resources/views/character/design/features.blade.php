@@ -58,10 +58,7 @@
 
         <div class="form-group">
             {!! Form::label('Traits') !!}
-            @if(Settings::get('trait_per_item') == 0 && count($request->getAttachedTraitIds()) > 0 )<div><a href="#" class="btn btn-primary mb-2" id="add-feature">Add Trait</a></div>
-            @else
-            <i>You must attach a trait item in order to pick new traits for your character.</i>
-            @endif
+
 
             <div id="featureList">
                 {{-- Add in the compulsory traits for MYO slots --}}
