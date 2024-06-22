@@ -53,7 +53,7 @@ class AwardCaseController extends Controller
         return view('home.awardcase', [
             'categories' => $categories->keyBy('id'),
             'awards' => $awards,
-            'userOptions' => User::visible()->where('id', '!=', Auth::user()->id)->orderBy('id')->pluck('name', 'id')->toArray(),
+            'userOptions' => User::visible()->where('id', '!=', Auth::user()->id)->orderBy('name')->pluck('name', 'id')->toArray(),
             'user' => Auth::user()
         ]);
     }
