@@ -4,7 +4,8 @@
     @endif
     <div class="{{ $imageUrl ? 'col-md-9' : 'col-12' }}">
         <h3>
-            {!! $name !!} @if(isset($idUrl) && $idUrl) <a href="{{ $idUrl }}" class="world-entry-search text-muted"><i class="fas fa-search"></i></a>  @endif
+        <x-admin-edit title="Item" :object="$item"/>
+        <h3>{!! $name !!} @if(isset($idUrl) && $idUrl) <a href="{{ $idUrl }}" class="world-entry-search text-muted"><i class="fas fa-search"></i></a>  @endif</h3>
             @if(Auth::check())
                 <div class="float-right">
                     @include('widgets._wishlist_add', ['item' => $item])
@@ -12,9 +13,6 @@
             @endif
         </h3>
 
-        <x-admin-edit title="Item" :object="$item"/>
-        <h3>{!! $name !!} @if(isset($idUrl) && $idUrl) <a href="{{ $idUrl }}" class="world-entry-search text-muted"><i class="fas fa-search"></i></a>  @endif</h3>
-        
         <div class="row">
             @if(isset($item->category) && $item->category)
                 <div class="col-md">
