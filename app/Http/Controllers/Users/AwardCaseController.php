@@ -35,7 +35,7 @@ class AwardCaseController extends Controller
      */
     public function getIndex()
     {
-        $categories = AwardCategory::orderBy('sort', 'DESC')->get();
+        $categories = AwardCategory::orderBy('sort', 'ASC')->get();
         $awards = count($categories) ?
             Auth::user()->awards()
                 ->where('count', '>', 0)
