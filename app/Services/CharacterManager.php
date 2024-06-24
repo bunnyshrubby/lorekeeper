@@ -2144,7 +2144,7 @@ is_object($sender) ? $sender->id : null,
                 if($features[$featureId]->species_id && $features[$featureId]->species_id != $species->id) continue;
 
                 // check trait was on og character OR is in an item, otherwise skip
-                if(!$request->isAttachedOrOnCharacter($featureId)) continue;
+                // if(!$request->isAttachedOrOnCharacter($featureId)) continue;
                 if(!$request->features()->where('feature_id', $featureId)->count() > 0)
                     CharacterFeature::create(['character_image_id' => $request->id, 'feature_id' => $featureId, 'data' => $data['feature_data'][$key], 'character_type' => 'Update']);
             }

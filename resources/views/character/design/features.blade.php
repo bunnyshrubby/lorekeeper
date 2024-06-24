@@ -58,10 +58,6 @@
 
         <div class="form-group">
             {!! Form::label('Traits') !!}
-            @if(Settings::get('trait_per_item') == 0 && count($request->getAttachedTraitIds()) > 0 )<div><a href="#" class="btn btn-primary mb-2" id="add-feature">Add Trait</a></div>
-            @else
-            <i>You must attach a trait item in order to pick new traits for your character.</i>
-            @endif
 
             <div id="featureList">
                 {{-- Add in the compulsory traits for MYO slots --}}
@@ -78,6 +74,7 @@
                 @if($request->features)
                     @foreach($request->features as $feature)
                         <div class="mb-2 d-flex">
+                            <i class="fas fa-lock h2 p-1"></i>
                             <!--- Users no longer assign traits, this is done via addon trait item! Hence, turn this readonly --->
                             {!! Form::select('feature_id[]', $features, $feature->feature_id, ['class' => 'form-control mr-2 feature-select', 'readonly', 'style' => 'pointer-events: none;']) !!}
                             {!! Form::text('feature_data[]', $feature->data, ['class' => 'form-control mr-2', 'readonly']) !!}
@@ -88,6 +85,7 @@
                 @if(count($itemFeatures) > 0)
                     @foreach($itemFeatures as $itemFeature)
                         <div class="mb-2 d-flex">
+                            <i class="fas fa-lock-open h2 p-1"></i>
                             <!--- These selects are built based on the trait item added and only allow the specified traits to be chosen! --->
                             {!! Form::select('feature_id[]', $itemFeature, array_key_first($itemFeature), ['class' => 'form-control mr-2 feature-select']) !!}
                             {!! Form::text('feature_data[]', null, ['class' => 'form-control mr-2', 'placeholder' => 'Extra Info (Optional)']) !!}
@@ -95,8 +93,11 @@
                     @endforeach
                 @endif
             </div>
+            <div><a href="#" class="btn btn-primary mb-2" id="add-feature">Add Trait</a></div>
+
             <div class="feature-row hide mb-2">
-                {!! Form::select('feature_id[]', $choiceFeatures, null, ['class' => 'form-control mr-2 feature-select', 'placeholder' => 'Select Trait']) !!}
+                <i class="fas fa-lock-open h2 p-1"></i>
+                {!! Form::select('feature_id[]', $features, null, ['class' => 'form-control mr-2 feature-select', 'placeholder' => 'Select Trait']) !!}
                 {!! Form::text('feature_data[]', null, ['class' => 'form-control mr-2', 'placeholder' => 'Extra Info (Optional)']) !!}
                 <a href="#" class="remove-feature btn btn-danger mb-2">×</a>
             </div>
